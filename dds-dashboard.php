@@ -17,4 +17,19 @@ require_once( __DIR__ . '/templates/dashboard-card-aanmaken.php');
 require_once( __DIR__ . '/register/create-dashboard.php');
 
 
+function add_admin_style_scripts( $hook ) {
+
+    global $post;
+    if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
+        if ( 'autos' === $post->post_type ) {     
+           
+            wp_enqueue_script(  'dds-wp-dashboard-js', plugin_dir_url( __FILE__ ).'/assets/js/dds-wp-dashboard.js' , array('jquery', 'jquery-ui-sortable'));
+            wp_enqueue_style('dds-wp-dashboard-css', plugin_dir_url( __FILE__ ).'/assets/css/dds-wp-dashboard.css');
+        }
+       
+    }
+}
+add_action( 'admin_enqueue_scripts', 'add_admin_style_scripts', 10, 1 );
+
+
 ?>
