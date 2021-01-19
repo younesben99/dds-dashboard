@@ -3,7 +3,9 @@
     margin: 0;
     font-family: "Rubik", Arial;
   }
-
+a{
+  text-decoration: none !important;
+}
   .navwrapper {
     padding: 15px 40px;
     display: flex;
@@ -14,7 +16,6 @@
     max-width: 300px;
     flex-direction: column;
     border-right: 1px solid #efefef;
-    height: 100vh;
     box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
     -webkit-box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
     -moz-box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
@@ -29,7 +30,7 @@
   .contentwrap {
     width: 85%;
     background: #eaeaea;
-    padding:3%
+    padding:3%;
   }
 
   .bodywrap {
@@ -39,19 +40,39 @@
   .additem {
     background: #ca112a;
     background: linear-gradient(45deg, #d63232, #d02655);
-    padding: 15px 0;
-    text-align: center;
-    margin: 50px 0 40px;
+    padding: 15px 10%;
+    text-align: left;
+    margin: 50px 0 10px;
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .additem:hover {
     opacity: 0.9;
     transition: 0.2s;
   }
-
+  .archieflink {
+    background: #f5f5f5;
+    padding:15px 10%;
+    text-align: left !important;
+    margin: 20px 0 40px;
+    color: #424242;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0px 1px 2px #d2d2d2a6;text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+  .archieflink:hover{
+    opacity: 0.9;
+    transition: 0.2s;
+  }
   .menuitemwrap div {
     padding: 5px 0;
     color: #353535;
@@ -59,7 +80,7 @@
   }
 
   .menuitems {
-    padding-top: 40px;
+    padding-top: 25px;
     border-top: 1px solid #efefef;
     height: 400px;
   }
@@ -130,4 +151,34 @@ div#dds-grid {
  
   color:rgb(228, 19, 64) !important;
   transition:0.4s;
+}
+
+@media only screen and (max-width: 700px) {
+  .bodywrap {
+    display: flex;
+    flex-direction: column;
+}
+.navwrapper{
+  width:100%;
+  max-width: 100%;
+  padding:0;
+}
+.contentwrap{
+  width:100%;
+  max-width: 100%;
+  padding:0;
+}
+div#dds-grid {
+  flex-direction: row;
+    justify-content: space-around;
+}
+
+.card {
+  flex-basis: 30%;
+  margin: 20px 0;
+  background: white;
+  margin: 3%;
+  border-radius: 6px;
+  min-width: 250px;
+}
 }

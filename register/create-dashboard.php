@@ -1,19 +1,29 @@
 <?php
 
 
-if(!file_exists(ABSPATH . "/dashboard.php")){
+if(!file_exists(ABSPATH . "dashboard/index.php")){
     
-    
-    $myfile = fopen(ABSPATH . "/dashboard.php", "w");
+    if(!is_dir($ABSPATH . "dashboard")) {
+        mkdir(ABSPATH . "dashboard");
+    }
+
+    $myfile = fopen(ABSPATH . "dashboard/index.php", "w");
     $content = "<?php 
-    include(__DIR__ .'/wp-load.php');
-    include( WP_PLUGIN_DIR. '/dds-dashboard/templates/dashboard.php'); ?>";
+    include(__DIR__ .'/../wp-load.php');
+    include( WP_PLUGIN_DIR. '/dds-dashboard/templates/dashboard-content.php'); ?>";
     fwrite($myfile, $content);
     fclose($myfile);
 
 
+    $myfile = fopen(ABSPATH . "dashboard/archief.php", "w");
+    $content = "<?php 
+    include(__DIR__ .'/../wp-load.php');
+    include( WP_PLUGIN_DIR. '/dds-dashboard/templates/dashboard-archive.php'); ?>";
+    fwrite($myfile, $content);
+    fclose($myfile);
 
-    $myfile = fopen(ABSPATH . "/.htaccess", "w");
+
+    $myfile = fopen(ABSPATH . ".htaccess", "w");
     $content = "RewriteEngine on 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f

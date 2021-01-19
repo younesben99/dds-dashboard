@@ -12,6 +12,7 @@
 
   <link href="https://cmpluginzone.local/wp-content/plugins/dds-dashboard/assets/dashboard-style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" />
+
   <title>Dashboard</title>
 
 </head>
@@ -20,6 +21,7 @@
 
 
   <div class="bodywrap">
+  
 
     <nav class="navwrapper">
 
@@ -27,10 +29,11 @@
         <img class="dslogo" src="https://cmpluginzone.local/wp-content/uploads/2021/01/digiflow_donkerblauw.png" />
       </div>
 
-      <a href="https://cmpluginzone.local/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
-      <a href="https://cmpluginzone.local/dashboard/archief" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
+      <a href="https://cmpluginzone.local/dashboard/" class="archieflink"><i class="icon-arrow-left-circle" style="font-size:20px;" ></i> <span style="margin-left:10px;">Wagens beheren</span></a>
+
+
       <div class="menuitems">
-  
+
         <span class="filterlabel">Filteren</span>
 
         <div class="menuitemwrap">
@@ -47,7 +50,7 @@
 
           $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
 
-          if($status == "Actief" ){
+          if($status == "Archief" ){
             $term = get_the_terms($dspost, "merkenmodel");
             
             foreach( $term as $termitem){
@@ -91,7 +94,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
-  <script src="https://cmpluginzone.local/wp-content/plugins/dds-dashboard/assets/dds-grid.js" type="text/javascript"></script>
+  <script src="https://cmpluginzone.local/wp-content/plugins/dds-dashboard/assets/dds-grid-archive.js" type="text/javascript"></script>
 
 </body>
 
