@@ -25,7 +25,7 @@
       });
   
       });
-      $(".merkitem").on("click",function(){s
+      $(".merkitem").on("click",function(){
 
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
