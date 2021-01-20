@@ -3,7 +3,7 @@
     $(document).ready(function(){
     
 
-$("#major-publishing-actions").prepend("<a href='https://cmpluginzone.local/dashboard/' class='archieflink'><i class='icon-arrow-left-circle' style='font-size:20px;'></i> <span style='margin-left:10px;'>Dashboard</span></a>");
+$("#major-publishing-actions").prepend("<a href='/dashboard/' class='archieflink'><i class='icon-arrow-left-circle' style='font-size:20px;'></i> <span style='margin-left:10px;'>Dashboard</span></a>");
 
 
 // new Picker(document.querySelector('#careersteinschrijving-input'), {

@@ -4,7 +4,7 @@
 Plugin Name: DDS Dashboard
 Plugin URI: https://github.com/younesben99/dds-dashboard
 Description: Digiflow Dealership Solutions | Dashboard for managing your digital dealership
-Version: 0.8
+Version: 0.9
 Author: Younes Benkheil
 Author URI: https://digiflow.be/
 License: GPL2
@@ -52,7 +52,7 @@ function display_admin_card($post){
   <div class="card-body">
     <h5 class="card-title"><?php echo get_the_title($post);?></h5>
     <div class="hr"></div>
-    <a href="http://cmpluginzone.local/wp-admin/post.php?post=<?php echo($post->ID); ?>&amp;action=edit"
+    <a href="<?php echo get_site_url();?>/wp-admin/post.php?post=<?php echo($post->ID); ?>&amp;action=edit"
       class="btn btn-primary beheerwagen">Beheer deze wagen</a>
 
   </div>
@@ -79,7 +79,7 @@ function display_archive_card($post){
   <div class="card-body">
     <h5 class="card-title"><?php echo get_the_title($post);?></h5>
     <div class="hr"></div>
-    <a href="http://cmpluginzone.local/wp-admin/post.php?post=<?php echo($post->ID); ?>&amp;action=edit"
+    <a href="<?php echo get_site_url();?>/wp-admin/post.php?post=<?php echo($post->ID); ?>&amp;action=edit"
       class="btn btn-primary beheerwagen">Beheer deze wagen</a>
   
   </div>
@@ -107,7 +107,7 @@ add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
 function my_login_page_remove_back_to_link() { ?>
 <div style="    text-align: center;
-    margin-top: 7%;"><img src="https://cmpluginzone.local/wp-content/uploads/2021/01/digiflow_donkerblauw.png" class="digilogo" style="width:150px;" /></div>
+    margin-top: 7%;"><img src="<?php echo get_site_url();?>/wp-content/uploads/2021/01/digiflow_donkerblauw.png" class="digilogo" style="width:150px;" /></div>
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap"
     rel="stylesheet">

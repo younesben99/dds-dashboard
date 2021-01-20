@@ -3,7 +3,7 @@
     $(document).ready(function(){
     
   
-      $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+      $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         archive: "allcars"
       },
@@ -14,7 +14,7 @@
       $(".showallcars").on("click",function(){
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         archive: "allcars"
       },
@@ -27,7 +27,7 @@
 
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         archive: "merkpush",
         merk: $(this).attr("data-slug"),

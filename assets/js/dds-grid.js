@@ -3,7 +3,7 @@
     $(document).ready(function(){
     
   
-      $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+      $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "allcars"
       },
@@ -15,7 +15,7 @@
       $(".showallcars").on("click",function(){
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "allcars"
       },
@@ -25,11 +25,11 @@
       });
   
       });
-      $(".merkitem").on("click",function(){
+      $(".merkitem").on("click",function(){s
 
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "merkpush",
         merk: $(this).attr("data-slug"),
@@ -44,13 +44,12 @@
 
 
       $("#loguit").on("click",function(){
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
         {
           logout: "true"
         },
         function(data, status){
-          console.log("test");
-          location.reload();
+          window.location.href = "/login";
         });
       });
     
