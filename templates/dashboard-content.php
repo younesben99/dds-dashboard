@@ -18,7 +18,7 @@ if(is_user_logged_in()){
     href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap"
     rel="stylesheet">
 
-  <link href="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/css/dashboard-style.css" rel="stylesheet">
+  <link href="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/css/dashboard-style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" />
   <title>Dashboard</title>
 
@@ -32,12 +32,12 @@ if(is_user_logged_in()){
     <nav class="navwrapper">
 
       <div style="margin-top:20px;text-align:center;">
-        <img class="dslogo" src="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.png" />
+        <img class="dslogo" src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.png" />
       </div>
 
-      <a href="<?php echo get_site_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
-      <a href="<?php echo get_site_url();?>/dashboard/archief" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
-      <a href="<?php echo get_site_url();?>/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
+      <a href="<?php echo get_home_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
+      <a href="<?php echo get_home_url();?>/dashboard/archief" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
+      <a href="<?php echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
       <a class="archieflink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a>
 
       <div class="menuitems">
@@ -105,7 +105,7 @@ if(is_user_logged_in()){
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
-  <script src="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/js/dds-grid.js" type="text/javascript"></script>
+  <script src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/js/dds-grid.js" type="text/javascript"></script>
 
 </body>
 
@@ -115,7 +115,7 @@ if(is_user_logged_in()){
 <?php
 }
 else{
-  $headerurl = "Location: https://" . get_site_url() . "/login.php";
+  $headerurl = "Location: " . get_home_url() . "/login.php";
   header($headerurl);
 }
 ?>
