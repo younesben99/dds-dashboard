@@ -68,7 +68,8 @@ function display_archive_card($post){
         $selected_img = $carsync_images[0];
     }
     else{
-        $selected_img = wp_get_attachment_image_src($manual_images[0]);
+        $selected_img_url = wp_get_attachment_image_src($manual_images[0]);
+        $selected_img = $selected_img_url[0];
     }
     ?>
   
