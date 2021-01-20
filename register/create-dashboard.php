@@ -23,7 +23,8 @@ if(!file_exists(ABSPATH . "dashboard/index.php")){
     fwrite($myfile, $content);
     fclose($myfile);
 
-
+    
+    
     $myfile = fopen(ABSPATH . "dashboard/archief/index.php", "w");
     $content = "<?php 
     include(__DIR__ .'/../../wp-load.php');
@@ -33,7 +34,12 @@ if(!file_exists(ABSPATH . "dashboard/index.php")){
 
 
     
-
+    $myfile = fopen(ABSPATH . "dashboard/archief/.htaccess", "w");
+    $content = "RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]";
+    fwrite($myfile, $content);
+    fclose($myfile);
 }
 
 

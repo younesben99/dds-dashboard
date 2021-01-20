@@ -115,7 +115,6 @@ if(is_user_logged_in()){
 <?php
 }
 else{
-  $headerurl = "Location: " . get_home_url() . "/login.php";
-  header($headerurl);
+  auth_redirect();
 }
 ?>
