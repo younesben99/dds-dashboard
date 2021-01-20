@@ -4,7 +4,7 @@
 Plugin Name: DDS Dashboard
 Plugin URI: https://github.com/younesben99/dds-dashboard
 Description: Digiflow Dealership Solutions | Dashboard for managing your digital dealership
-Version: 0.92
+Version: 1.0
 Author: Younes Benkheil
 Author URI: https://digiflow.be/
 License: GPL2
@@ -107,7 +107,7 @@ add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
 function my_login_page_remove_back_to_link() { ?>
 <div style="    text-align: center;
-    margin-top: 7%;"><img src="<?php echo get_site_url();?>/wp-content/uploads/2021/01/digiflow_donkerblauw.png" class="digilogo" style="width:150px;" /></div>
+    margin-top: 7%;"><img src="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.png" class="digilogo" style="width:150px;" /></div>
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap"
     rel="stylesheet">

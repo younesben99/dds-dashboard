@@ -32,7 +32,7 @@ if(is_user_logged_in()){
     <nav class="navwrapper">
 
       <div style="margin-top:20px;text-align:center;">
-        <img class="dslogo" src="<?php echo get_site_url();?>/wp-content/uploads/2021/01/digiflow_donkerblauw.png" />
+        <img class="dslogo" src="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.png" />
       </div>
 
       <a href="<?php echo get_site_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
