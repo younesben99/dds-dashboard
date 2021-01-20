@@ -1,8 +1,3 @@
-<?php
-
-if(is_user_logged_in()){
-
-  ?>
 <!DOCTYPE html>
 <html>
 
@@ -107,10 +102,3 @@ if(is_user_logged_in()){
 </body>
 
 </html>
-
-<?php
-}
-else{
-auth_redirect();
-}
-?>

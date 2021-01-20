@@ -49,7 +49,7 @@
           logout: "true"
         },
         function(data, status){
-          window.location.href = "/login";
+          window.location.href = "/login.php";
         });
       });
     

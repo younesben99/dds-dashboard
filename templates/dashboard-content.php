@@ -1,11 +1,3 @@
-<?php
-
-if(is_user_logged_in()){
-
-  ?>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +28,7 @@ if(is_user_logged_in()){
       </div>
 
       <a href="<?php echo get_home_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
-      <a href="<?php echo get_home_url();?>/dashboard/archief" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
+      <a href="<?php echo get_home_url();?>/dashboard/archief/" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
       <a href="<?php echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
       <a class="archieflink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a>
 
@@ -110,11 +102,3 @@ if(is_user_logged_in()){
 </body>
 
 </html>
-
-
-<?php
-}
-else{
-  auth_redirect();
-}
-?>
