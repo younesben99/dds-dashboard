@@ -1,3 +1,11 @@
+<?php
+
+if(is_user_logged_in()){
+
+  ?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -29,6 +37,9 @@
 
       <a href="https://cmpluginzone.local/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
       <a href="https://cmpluginzone.local/dashboard/archief" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
+      <a href="https://cmpluginzone.local/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
+      <a class="archieflink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a>
+
       <div class="menuitems">
   
         <span class="filterlabel">Filteren</span>
@@ -43,11 +54,13 @@
           
         ));
         $merkenlijst = array();
+        $counter = 0;
         foreach($dsposts as $dspost){
 
           $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
 
           if($status == "Actief" ){
+            $counter++;
             $term = get_the_terms($dspost, "merkenmodel");
             
             foreach( $term as $termitem){
@@ -79,9 +92,10 @@
       </div>
     </nav>
 
-
+   
     <div class="contentwrap">
 
+      <h1 class="dashhead">Inventaris (<?php echo $counter;?>)</h1>
     <div id="dds-grid"></div>
     </div>
 
@@ -97,3 +111,10 @@
 
 </html>
 
+
+<?php
+}
+else{
+  header("Location: https://cmpluginzone.local/login.php");
+}
+?>

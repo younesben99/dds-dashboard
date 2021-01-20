@@ -1,3 +1,8 @@
+<?php
+
+if(is_user_logged_in()){
+
+  ?>
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +34,7 @@
         <img class="dslogo" src="https://cmpluginzone.local/wp-content/uploads/2021/01/digiflow_donkerblauw.png" />
       </div>
 
-      <a href="https://cmpluginzone.local/dashboard/" class="archieflink"><i class="icon-arrow-left-circle" style="font-size:20px;" ></i> <span style="margin-left:10px;">Wagens beheren</span></a>
+      <a href="https://cmpluginzone.local/dashboard/" class="archieflink" style="margin-top:50px;"><i class="icon-arrow-left-circle" style="font-size:20px;" ></i> <span style="margin-left:10px;">Wagens beheren</span></a>
 
 
       <div class="menuitems">
@@ -46,11 +51,13 @@
           
         ));
         $merkenlijst = array();
+        $counter = 0;
         foreach($dsposts as $dspost){
 
           $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
 
           if($status == "Archief" ){
+            $counter++;
             $term = get_the_terms($dspost, "merkenmodel");
             
             foreach( $term as $termitem){
@@ -58,6 +65,7 @@
                 if (!in_array($termitem->term_id, $merkenlijst))
                 {
                   array_push($merkenlijst,$termitem->term_id);
+                  
                 }
                 
             }
@@ -84,8 +92,8 @@
 
 
     <div class="contentwrap">
-
-    <div id="dds-grid"></div>
+    <h1 class="dashhead">Archief (<?php echo $counter;?>)</h1>
+    <div id="dds-grid">Geen gerachiveerde wagens gevonden</div>
     </div>
 
   </div>
@@ -100,3 +108,9 @@
 
 </html>
 
+<?php
+}
+else{
+  header("Location: https://cmpluginzone.local/login.php");
+}
+?>

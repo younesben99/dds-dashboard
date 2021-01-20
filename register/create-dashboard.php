@@ -7,6 +7,13 @@ if(!file_exists(ABSPATH . "dashboard/index.php")){
         mkdir(ABSPATH . "dashboard");
     }
 
+    $myfile = fopen(ABSPATH . "login.php", "w");
+    $content = "<?php 
+    include(__DIR__ .'/wp-load.php');
+    include( ABSPATH. '/wp-login.php'); ?>";
+    fwrite($myfile, $content);
+    fclose($myfile);
+    
     $myfile = fopen(ABSPATH . "dashboard/index.php", "w");
     $content = "<?php 
     include(__DIR__ .'/../wp-load.php');

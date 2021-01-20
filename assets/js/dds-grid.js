@@ -3,23 +3,25 @@
     $(document).ready(function(){
     
   
-      $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dashboard-card-aanmaken.php",
+      $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "allcars"
       },
       function(data, status){
         $("#dds-grid").html(data);
+        
       });
   
       $(".showallcars").on("click",function(){
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dashboard-card-aanmaken.php",
+        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "allcars"
       },
       function(data, status){
         $("#dds-grid").html(data);
+        
       });
   
       });
@@ -27,7 +29,7 @@
 
         $(".menuitemwrap div").removeClass("ds-selected");
         $(this).addClass("ds-selected");
-        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dashboard-card-aanmaken.php",
+        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
         push: "merkpush",
         merk: $(this).attr("data-slug"),
@@ -36,8 +38,20 @@
       function(data, status){
         
         $("#dds-grid").html(data);
-        console.log(data);
+        
       });
+      });
+
+
+      $("#loguit").on("click",function(){
+        $.post("https://cmpluginzone.local/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          logout: "true"
+        },
+        function(data, status){
+          console.log("test");
+          location.reload();
+        });
       });
     
 });
