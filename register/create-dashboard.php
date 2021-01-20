@@ -49,7 +49,6 @@ if(!file_exists(ABSPATH . "dashboard/index.php")){
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.php [L]
     </IfModule>
-
     # END WordPress";
         fwrite($myfile, $content);
         fclose($myfile);
