@@ -26,7 +26,7 @@ if(!file_exists(ABSPATH . "dashboard/index.php")){
 
     $myfile = fopen(ABSPATH . "dashboard/archief/index.php", "w");
     $content = "<?php 
-    include(__DIR__ .'/../wp-load.php');
+    include(__DIR__ .'/../../wp-load.php');
     include( WP_PLUGIN_DIR. '/dds-dashboard/templates/dashboard-archive.php'); ?>";
     fwrite($myfile, $content);
     fclose($myfile);
