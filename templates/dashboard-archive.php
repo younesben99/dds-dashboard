@@ -9,6 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&display=swap"
     rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
 
   <link href="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/css/dashboard-style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" />
@@ -25,11 +26,15 @@
 
     <nav class="navwrapper">
 
-      <div style="margin-top:20px;text-align:center;">
-        <img class="dslogo" src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.png" />
+    <div>
+        <img class="dslogo" src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.svg" />
+        <div class="topnavtoggle toggleinmenu"><img src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/menu.svg" style="width: 25px;" /></div>
       </div>
 
-      <a href="<?php echo get_home_url();?>/dashboard/" class="archieflink" style="margin-top:50px;"><i class="icon-arrow-left-circle" style="font-size:20px;" ></i> <span style="margin-left:10px;">Wagens beheren</span></a>
+      <a href="<?php echo get_home_url();?>/dashboard/" class="archieflink" style="margin-top:40px;"><i class="icon-grid" style="font-size:20px;" ></i> <span style="margin-left:10px;">Inventaris</span></a>
+      <a href="<?php echo get_home_url();?>/dashboard/archief/" class="archieflink dsactive"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
+      <a href="<?php echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
+      <a class="archieflink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a>
 
 
       <div class="menuitems">
@@ -51,10 +56,10 @@
 
           $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
 
-          if($status == "Archief" ){
+          if($status == "archief" ){
             $counter++;
             $term = get_the_terms($dspost, "merkenmodel");
-            
+            if (is_array($term) || is_object($term)){
             foreach( $term as $termitem){
               if($termitem->parent == 0){
                 if (!in_array($termitem->term_id, $merkenlijst))
@@ -64,6 +69,7 @@
                 }
                 
             }
+          }
           }
           
         }
@@ -87,9 +93,17 @@
 
 
     <div class="contentwrap">
-    <h1 class="dashhead">Archief (<?php echo $counter;?>)</h1>
-    <div id="dds-grid">Geen gerachiveerde wagens gevonden</div>
+      <div class="topnav">
+      <div class="topnavtoggle"><img src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/menu.svg" style="width: 25px;" /></div>
+      <a class="archieflink loguitlink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a></div>
+      <div style="padding:2%;" class="innercontent">
+      <h1 class="dashhead">Archief (<?php echo $counter;?>)</h1>
+      <a href="<?php echo get_home_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
+      <div id="dds-grid"></div>
+      </div>
     </div>
+
+  </div>
 
   </div>
 

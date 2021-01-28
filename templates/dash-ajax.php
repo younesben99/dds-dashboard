@@ -3,6 +3,47 @@
 include(__DIR__ . "/../../../../wp-load.php");
 
 
+if(isset($_POST['dashpoststatus'])){
+  if($_POST['dashpoststatus'] == "tekoop"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_status_key', 'tekoop');
+    echo($postid . " is aangepast");
+  }
+  if($_POST['dashpoststatus'] == "gereserveerd"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_status_key', 'gereserveerd');
+    echo($postid . " is aangepast");
+  }
+  if($_POST['dashpoststatus'] == "verkocht"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_status_key', 'verkocht');
+    echo($postid . " is aangepast");
+  }
+  
+}
+
+if(isset($_POST['dashstatus'])){
+  if($_POST['dashstatus'] == "archief"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_sync_key', 'NO');
+    update_post_meta($postid, '_car_post_status_key', 'archief');
+    echo($postid . " is aangepast");
+  }
+  if($_POST['dashstatus'] == "nglive"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_sync_key', 'NO');
+    update_post_meta($postid, '_car_post_status_key', 'actief');
+    echo($postid . " is aangepast");
+  }
+  if($_POST['dashstatus'] == "live"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_sync_key', 'YES');
+    update_post_meta($postid, '_car_post_status_key', 'actief');
+    echo($postid . " is aangepast");
+  }
+  
+}
+
 if(isset($_POST['logout'])){
 
   if($_POST['logout'] == "true"){
@@ -17,7 +58,7 @@ if(isset($_POST['push'])){
     $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1) );
     foreach ($allposts as $post) {
       $status = get_post_meta( $post->ID, '_car_post_status_key', true );
-      if($status == "Actief" ){
+      if($status == "actief" ){
         display_admin_card($post);
       }
     }
@@ -41,7 +82,7 @@ if(isset($_POST['push'])){
 
     foreach($dsposts as $dspost){
       $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
-      if($status == "Actief" ){
+      if($status == "actief" ){
         display_admin_card($dspost);
       }
     }
@@ -64,8 +105,8 @@ if(isset($_POST['archive'])){
     $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1) );
     foreach ($allposts as $post) {
       $status = get_post_meta( $post->ID, '_car_post_status_key', true );
-      if($status == "Archief" ){
-        display_archive_card($post);
+      if($status == "archief" ){
+        display_admin_card($post);
       }
     }
   }
@@ -88,7 +129,7 @@ if(isset($_POST['archive'])){
 
     foreach($dsposts as $dspost){
       $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
-      if($status == "Archief" ){
+      if($status == "archief" ){
           display_admin_card($dspost);
       }
       
@@ -96,7 +137,11 @@ if(isset($_POST['archive'])){
 
     
   }
+
+
+
   
+
 
 }
 

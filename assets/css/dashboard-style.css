@@ -1,44 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 * {
     padding: 0;
     margin: 0;
-    font-family: "Rubik", Arial;
+    font-family: "Montserrat", Arial;
   }
+  .topnavtoggle{
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+ .toggleinmenu{
+   display:none;
+ }
+  
 a{
   text-decoration: none !important;
+}
+body{
+  background: #f6f9fa;
 }
 .bodywrap {
   display: flex;
   min-height: 100vh;
+
+    background: #f6f9fa;
+
+}
+.topnav{
+  background: white;
+  padding: 10px 2.5%;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  display: flex;
+  justify-content: flex-end;
+}
 }
 .dashhead{
   margin: 22px 0 14px;
   text-align: left; }
 
   .navwrapper {
-    padding: 15px 40px;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    min-width: 260px;
     background: #ffffff;
-    width: 20%;
-    max-width: 300px;
-    flex-direction: column;
-    border-right: 1px solid #efefef;
-    box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
-    -webkit-box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
-    -moz-box-shadow: 0 3px 9px 0 rgba(169, 184, 200, .15);
+    flex-basis:20%;
+    padding: 20px 0px;
+    border-right: 1px solid rgba(120, 130, 140, 0.13);
   }
 
   .dslogo {
-
-    width: 180px;
+    padding-left: 25px;
+    width: 125px;
   }
 
 
   .contentwrap {
-    width: 85%;
-    background: #eaeaea;
-    padding:3%;
+    flex-basis: 80%;
+    
+    
   }
 
   .bodywrap {
@@ -46,18 +63,17 @@ a{
   }
 
   .additem {
-    background-color: #0f688a;
-    box-shadow: inset 0 -2px 0 0 #27373e;
-
-    padding: 15px 10%;
-    text-align: center;
-    margin: 50px 0 40px;
-    color: white;
+    padding:10px 0%;
+    margin: 15px 0 15px;
+    color: #5b6271;
     border-radius: 6px;
     cursor: pointer;
+    width: 200px;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    font-weight: 500;
   }
   h1 {
     font-weight: 400;
@@ -66,24 +82,27 @@ a{
     opacity: 0.9;
     transition: 0.2s;
   }
+  .dsactive{
+    background: #f0f5f7;
+    border-left: 4px solid #20aee3;
+  }
   .archieflink {
-    background: #f5f5f5;
-    padding:15px 10%;
-    text-align: left !important;
-    margin: 0px 0 13px;
-    color: #424242;
-    border-radius: 6px;
+    font-weight: 500;    
+   
+    text-align: left;
+
+    color: #5b6271;
     cursor: pointer;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0px 1px 2px #d2d2d2a6;text-align: center;
+    text-align: center;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+    padding: 15px 25px;
 }
   .archieflink:hover{
     opacity: 0.9;
     transition: 0.2s;
+    color:#20aee3;
   }
   .menuitemwrap div {
     padding: 5px 0;
@@ -93,7 +112,8 @@ a{
 
   .menuitems {
     padding-top: 25px;
-    border-top: 1px solid #efefef;
+    border-top: 1px solid #efefef;    padding-left: 25px;
+    margin-top: 25px;
   }
 
   .menuitemwrap {
@@ -110,20 +130,26 @@ a{
     margin-bottom: 15px;
   }
   .card {
-    flex-basis: 20%;
-    margin: 20px 0;
+    flex-basis: 100%;
+    margin: 10px 0;
     background: white;
     border-radius: 6px;
     min-width: 200px;
-    margin-right: 40px;box-shadow: 0px 1px 1px #bfbfbf;
- 
-    
+
+    border: 1px solid #efefef;
+    display: flex;
+    padding: 15px;
+    max-width: 800px;
+
 }
 .card img {
-  width: 100%;
-  border-radius: 6px 6px 0 0;
-  height: 170px;
+  width: 223px;
+  border-radius: 6px;
+  height: 125px;
   object-fit: cover;
+  max-width: 170px;
+  min-width: 95px;
+
 }
 div#dds-grid {
   display: flex;
@@ -134,9 +160,10 @@ div#dds-grid {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .card .hr{
-  margin: 10px 0;
+  margin:10px 0 0 0;
     border: 0;
     height: 1px;
     background: #efefef;
@@ -146,17 +173,24 @@ div#dds-grid {
  font-weight: 500;
 
 }
-
 .beheerwagen {
-  color: #4c4c4c;
+  color: #20aee3;
+  background: #f0f5f7;
   text-decoration: none;
   font-size: 13px;
   padding: 10px;
-  border: 1px solid #e8e8e8;
-  background: #f5f5f5;
-  font-weight: 300;
-  border-radius: 5px;
-  box-shadow: 0px 1px 2px #d2d2d2a6;text-align: center;
+  font-weight: 500;
+  border-radius: 7px;
+  text-align: center;
+  margin-top:10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid #20aee3;
+  width:25%;
+  margin-right: 20px;
+  min-width:110px;
+  max-width: 130px;
 }
 .merkitem{
   cursor:pointer;
@@ -165,16 +199,150 @@ div#dds-grid {
   transition: 0.4s;
   font-weight: bold;
 }
+
+.dds-group-button{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:100%;
+  justify-content: flex-start;
+}
+.dds-group-button #dash-status{
+  height: 100%;
+}
+.dds-group-button #dash-post-status{
+  height: 100%;
+}
+select{
+  border-radius: 7px;
+  padding-left:25px;
+  border: 1px solid #dedede;
+    color: #7e879a;
+    background:white;
+    width: 100%;
+}
+option{
+  background:white;
+}
+
+
+.selectwrapper{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width:30%;
+  margin-right: 20px;
+  min-width:130px;
+  max-width: 164px;
+  margin-top:10px;
+}
+.selectwrapper-post-status{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width:30%;
+  margin-right: 20px;
+  min-width:130px;
+  max-width: 164px;
+  margin-top:10px;
+}
+
+.dash-status-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 100px;
+}
+.dash-post-status-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 100px;
+}
+.live {
+  background: #1eb716;
+}
+.nglive {
+  background: #e67510;
+}
+
+.archief {
+  background: #999999;
+}
+
+
+.tekoop {
+  background: #1eb716;
+}
+.gereserveerd {
+  background: #e67510;
+}
+
+.verkocht {
+  background: #999999;
+}
+
+.dash-status-dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.dash-post-status-dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
 @media only screen and (max-width: 700px) {
+  .toggleinmenu{
+    display:block;
+    position:absolute;
+    top:30px;
+    left: 75%;
+  } 
+  .topnavtoggle{
+    display:flex;
+  }
+  .topnav{
+    padding:20px 10%;
+    justify-content:space-between;
+  }
+  .loguitlink{
+    padding:0;
+  }
+  
+.card-body {
+  padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+}
+.dash-status-dot,.dash-post-status-dot {
+  margin-left: 0px;
+}
+
   .bodywrap {
     display: flex;
     flex-direction: column;
 }
 .navwrapper{
-  width:100%;
-  max-width: 100%;
-  padding:0;
-  align-items: center;
+  width:70%;
+  max-width: 80%;
+  padding:30px 0 0 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  height: 100%;
+  display:none;
+  opacity:0;
+  transform:translateX(-270px);
 }
 .contentwrap{
   width:100%;
@@ -186,26 +354,59 @@ div#dds-grid {
     justify-content: space-around;
 }
 
-.card {
-  flex-basis: 30%;
-  margin: 20px 0;
-  background: white;
-  margin: 3%;
-  border-radius: 6px;
-  min-width: 288px;
+.card img {
+  width: 140px;
+  height: 100px;
 }
 .menuitems {
   width: 80%;
   margin-bottom: 50px;
-}
-.additem,.archieflink {
  
-  width: 60%;
 }
+
 .dashhead{
 
 
   margin: 22px 40px 14px;
   text-align: left;
+}
+
+.additem {
+  width: 200px;
+  margin:22px 40px 14px;
+}
+
+.card {
+  flex-basis: 30%;
+  align-items: flex-start;
+  flex-direction: column;
+  background: white;
+  margin: 15px 0 15px 0;
+  border-radius: 6px;
+  min-width: 70%;
+}
+.dds-group-button #dash-status,.dds-group-button #dash-post-status{
+  margin:0px;
+}
+.beheerwagen{
+
+}
+.beheerwagen {
+  align-items: center;
+  justify-content: center;
+  margin-right:0px;
+  width:100%;
+  max-width:100%;
+}
+.selectwrapper,.selectwrapper-post-status {
+  margin-left: 0;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  max-width:100%;
+  margin-right:0px;
+ 
+}i.icon-pencil {
+  margin-right: 10px;
 }
 }
