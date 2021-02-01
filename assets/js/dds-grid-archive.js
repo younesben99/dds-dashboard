@@ -1,7 +1,15 @@
 (function($) {
 
     $(document).ready(function(){
-
+      $("#loguit").on("click",function(){
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          logout: "true"
+        },
+        function(data, status){
+          window.location.href = "/login.php";
+        });
+      });
       $(".innercontent").on("click",function(){
         if ($('.navwrapper').is(":visible") && $(window).width() < 700 ) {
           anime({

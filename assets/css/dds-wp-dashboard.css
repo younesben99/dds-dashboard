@@ -5,30 +5,99 @@
 * {
     font-family: "Montserrat",Arial;
 }
-#adminmenuback,#adminmenuwrap,#screen-meta-links,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
+input#title {
+    display: none;
+}
+#screen-meta-links{
+  display:none;
+}
+#adminmenuback,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
     display:none;
     
 }
 #wpcontent, #wpfooter {
     margin-left: 0;
 }
-.toggle-switchy > input:checked + .toggle > .switch {
-    border: 3px solid #3390bb;
-}
-.toggle-switchy > input:checked + .toggle {
-    background: #1f688a;
-}
 #bulk-titles div a:before, .notice-dismiss:before, .tagchecklist .ntdelbutton .remove-tag-icon:before, .welcome-panel .welcome-panel-close:before,.notice-dismiss:active:before, .notice-dismiss:focus:before, .notice-dismiss:hover:before {
 
     color: #ffffff;
 }
-#post-body.columns-2 #postbox-container-1 {
-    float: right;
-    margin-right: 0;
-    width: 280px;
-    position: fixed;
-    right: 18%;
+
+
+/* #poststuff #post-body.columns-2 #side-sortables {
+    width: unset;
 }
+#post-body.columns-2 #side-sortables {
+    min-height: unset;
+}
+#post-body.columns-2 #postbox-container-1 {
+    float: unset;
+    margin-right: unset;
+    width: unset;
+}
+#poststuff #post-body.columns-2 {
+    margin-right: auto;
+} */
+.metabox-holder .postbox-container .meta-box-sortables {
+ 
+  position: sticky;
+  display: block;
+  top: 100px;
+}
+.topnavtoggle{
+  cursor:pointer;
+}
+.statusflex{
+  display:flex;flex-direction:row;justify-content: center;
+}
+input#carwagentitel-input {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+}
+.postbox{
+  min-width:unset;
+}
+div#post-body-content {
+  display: none !important;
+}
+div#post-body {
+  display: flex;
+  flex-direction: row-reverse;
+}
+div#postbox-container-1 {
+  width: 30% !important;
+  margin: 0px 20px;
+}
+
+div#postbox-container-2 {
+  width: 70% !important;
+}
+
+#poststuff #post-body.columns-2{
+  margin-right:unset;
+}
+#post-body.columns-2 #postbox-container-1 {
+  float: unset;
+  margin-right: unset;
+  width: unset;
+}
+.postbox-header {
+  display: block;
+}  .loguitlink{
+  padding:0;
+  font-weight: 500;    
+ 
+  text-align: left;
+
+  color: #5b6271;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 div#message {
     border: 0;
     width: 100%;
@@ -39,10 +108,8 @@ div#message {
     padding-bottom: 2px;
     color: white;
 }
-#wpwrap {
-    width: 60%;
-    margin: auto;
-}.meta-box-sortables input,.meta-box-sortables select,#titlediv #title {
+
+.meta-box-sortables input,.meta-box-sortables select,#titlediv #title {
     padding: 5px 15px;
     border-color: #ccd0d4;
 }
@@ -66,10 +133,11 @@ div#message {
     color: #636363;
     border-color: #cecece;
     background: #f3f5f6;
-    vertical-align: top;
    
+} 
+.postbox {
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0%);
 }
-
 #car_social_push h2.hndle.ui-sortable-handle {
     font-size: 12px !important;
 }
@@ -86,7 +154,7 @@ a.submitdelete.deletion {
     padding: 0;
     clear: both;
     border-top: 0px solid #ddd;
-    background: #f5f5f5;
+    background: #f6f9fa;
 }
 #submitdiv{
     border:0px !important;
@@ -100,25 +168,33 @@ a.submitdelete.deletion {
 }.postbox {
     border-radius: 6Px;
 }
-
+a.page-title-action {
+    border-radius: 7px !important;
+    border-color: #81d8f9 !important;
+    color: #20aee3 !important;
+    padding: 7px 20px !important;
+}
 input#publish {
-    color: white;
-    width: 100%;
-    font-size: 16px;
-    border: 0;
-    color: #20aee3;
-    background: #f0f5f7;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    font-weight: 500;
-    border-radius: 7px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border: 1px solid #20aee3;
-    box-shadow: 0px 0px 0px #ffffff00;
+  color: white;
+  width: 50%;
+  font-size: 16px;
+  border: 0;
+  color: #ffffff;
+  background: #20aee3;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 500;
+  border-radius: 7px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 0px solid #20aee3;
+  box-shadow: 0px 0px 0px #ffffff00;
+}
+#major-publishing-actions {
+  background: #f6f9fa;
 }
 input#publish:hover{
     opacity:0.9;
@@ -132,33 +208,139 @@ input#publish:hover{
 border-radius: 6px;
 margin: 10px !important;    
 width: 87px;
+}div#wpwrap {
+  position: absolute;
+  width: 80%;
+  left: 20%;
+  max-width: 1300px;
 }
+
+
+.selectwrapper{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 48%;
+  margin-right: 20px;
+  min-width:130px;
+ 
+  margin-top:10px;
+}
+.selectwrapper-post-status{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 48%;
+  margin-right: 20px;
+  min-width:130px;
   
+  margin-top:10px;
+}
+.toggleinmenu{
+  display:none;
+}
+@media only screen and (max-width: 1250px) {
+  .toggleinmenu{
+    display:block;
+  }
+  .topnavtoggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.navwrapper{
+  max-width: 80%;
+  padding:30px 0 0 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display:none;
+  opacity:0;
+  transform:translateX(-270px);
+}
+.contentwrap{
+  width:100%;
+  max-width: 100%;
+  padding:0;
+}
+  input#publish {
+    color: white;
+    width: 100%;
+  }
+  div#fbpush, div#igpush {
+    font-size: 10px;
+}
+div#wpwrap {
+  width: 100%;
+  margin-left: 0;
+  left: unset;
+}
+  #poststuff {
+    min-width: unset;
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+   
+    input#title {
+        width: 307px !important;
+    }
 
+}
+.postbox-header .handle-actions {
+  display: none;
+}
+@media only screen and (max-width: 960px){
+  
+  
+.auto-fold #wpcontent, .auto-fold #wpfooter {
+    margin-left: 0;
+}
+}
+  @media only screen and (max-width: 800px) {
+    
+  
+    #wpbody {
+      padding-top: 0;
+  }
+    #major-publishing-actions {
+      background: transparent !important;
+  }
+    .wrap {
+      clear: unset;
+      margin-right: 0;
+      margin-left: 0;
+  }
+    
+    div#postbox-container-1 {
+      width: 100% !important;
+      margin: 0;
+  }
+  div#postbox-container-2 {
+    width: 100% !important;
+}
+    div#wpwrap {
+      position: relative;
+      width: 100%;
+      left: 0%;
+      max-width: unset;
 
-  @media only screen and (max-width: 1241px) {
-    #poststuff #post-body.columns-2 {
-        margin-right: 0;
-    }
-    #post-body.columns-2 #postbox-container-1 {
-        float: left;
-        margin-right: 0;
-        width: 100%;
-        right: 0;
-        position: static;
-    }
-    #poststuff #post-body.columns-2 #side-sortables {
-        width: 100%;
-    }
-    #wpwrap {
-        width: 100%;
-        margin: auto;
-    }
+      margin-left: 0;
+  }
+  div#post-body {
+    flex-direction: column;
+}
+input#publish {
+  margin: 7px;
+  width: 100%;
+}
     #major-publishing-actions {
         background: #f5f5f5;
         position: fixed;
         z-index: 100;
-        width: 90%;
+        width: 100%;
         background: white;
         
         bottom: 0;
@@ -187,15 +369,11 @@ width: 87px;
         padding: 11px 20px;
         margin: 0;
     }
-    input#publish {
-   
-        margin: 0;
-    }
     #major-publishing-actions {
         
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
     }
     a.archieflink {
         display: flex;
@@ -203,7 +381,108 @@ width: 87px;
     .fields label {
         margin: 7px 0;
     }
-}html.wp-toolbar {
+  .toggleinmenu{
+    display:block;
+    position:absolute;
+    top:30px;
+    left: 75%;
+  } 
+  .topnavtoggle{
+    display:flex;
+  }
+  .topnav{
+    justify-content:space-between;
+  }
+
+  
+.card-body {
+  padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+}
+.dash-status-dot,.dash-post-status-dot {
+  margin-left: 0px;
+}
+
+  .bodywrap {
+    display: flex;
+    flex-direction: column;
+}
+div#dds-grid {
+  flex-direction: row;
+    justify-content: space-around;
+}
+
+.card img {
+  width: 140px;
+  height: 100px;
+}
+.menuitems {
+  width: 80%;
+  margin-bottom: 50px;
+ 
+}
+
+.dashhead{
+
+
+  margin: 22px 40px 14px;
+  text-align: left;
+}
+
+.additem {
+  width: 200px;
+  margin:22px 40px 14px;
+}
+
+.card {
+  flex-basis: 30%;
+  align-items: flex-start;
+  flex-direction: column;
+  background: white;
+  margin: 15px 0 15px 0;
+  border-radius: 6px;
+  min-width: 70%;
+}
+.dds-group-button #dash-status,.dds-group-button #dash-post-status{
+  margin:0px;
+}i.icon-pencil {
+  margin-right: 10px;
+}
+}
+
+@media screen and (max-width: 782px){
+  div#postbox-container-1 {
+    z-index: 1;
+}
+  div#postbox-container-2 {
+    margin-top: 20px;
+}
+.auto-fold #wpcontent {
+    position: relative;
+    margin-left: 0;
+    padding-left: 0;
+    padding: 30px;
+    padding-top: 0px;
+}
+}
+
+@media screen and (max-width: 402px){
+ 
+  a.page-title-action {
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+  .statusflex {
+    flex-direction: column;
+}
+  .selectwrapper,.selectwrapper-post-status {
+    width: 100%;
+  }
+  }
+
+html.wp-toolbar {
     padding-top: 0 !important;
 }
 .archieflow {
@@ -213,4 +492,242 @@ width: 87px;
 }
 .postbox-header {
     border-bottom: 1px solid #ffffff;
+}
+.dds-group-button{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .dds-group-button #dash-status{
+    margin: 0px 20px 0 10px;
+    height: 100%;
+  }
+  .dds-group-button #dash-post-status{
+    margin: 0px 20px 0 10px;
+    height: 100%;
+  }
+  select{
+    border-radius: 7px;
+    padding-left:25px;
+    border: 1px solid #dedede;
+      color: #7e879a;
+      background:white;
+      
+  }
+  option{
+    background:white;
+  }
+  .dds-group-button select {
+    width: 170px;
+  }
+  .dds-group-button a {
+    width: 105px;
+  }
+  
+  
+  
+  .dash-status-dot span {
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 100px;
+  }
+  .dash-post-status-dot span {
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 100px;
+  }
+  .live {
+    background: #1eb716;
+  }
+  .nglive {
+    background: #e67510;
+  }
+  
+  .archief {
+    background: #999999;
+  }
+  
+  
+  .tekoop {
+    background: #1eb716;
+  }
+  .gereserveerd {
+    background: #e67510;
+  }
+  
+  .verkocht {
+    background: #999999;
+  }
+  
+  .dash-status-dot {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 7px;
+  }
+  
+  .dash-post-status-dot {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 7px;
+  }
+  select#dash-status {
+    padding-left: 40Px;
+    width: 100%;
+    border-radius:7px;
+}
+select#dash-post-status {
+    padding-left: 40Px;
+    width: 100%;
+    border-radius:7px;
+}
+html.wp-toolbar {
+    padding-top: 0 !important;
+}
+
+ 
+  
+a{
+  text-decoration: none !important;
+}
+body{
+  background: #f6f9fa;
+}
+.bodywrap {
+  display: flex;
+  min-height: 100vh;
+
+    background: #f6f9fa;
+
+}
+.topnav{
+  background: white;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  display: flex;
+  justify-content: space-between;
+
+  padding:15px 3%;
+}
+
+.dashhead{
+  margin: 22px 0 14px;
+  text-align: left; }
+
+ 
+
+  .dslogo {
+    padding-left: 25px;
+    width: 125px;
+  }
+
+
+  .contentwrap {
+    flex-basis: 80%;
+    
+    
+  }
+
+  .bodywrap {
+    display: flex;
+  }
+  .additem:hover {
+    opacity: 0.9;
+    transition: 0.2s;
+  }
+  .dsactive{
+    background: #f0f5f7;
+    border-left: 4px solid #20aee3;
+  }
+  
+  .menuitemwrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .filterlabel {
+    font-variant: all-small-caps;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+.showallcars{
+ cursor:pointer;
+ font-weight: 500;
+
+}
+
+.merkitem{
+  cursor:pointer;
+}.ds-selected {
+  color: rgb(31 104 138) !important;
+  transition: 0.4s;
+  font-weight: bold;
+}
+
+.dds-group-button{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:100%;
+  justify-content: flex-start;
+}
+.dds-group-button #dash-status{
+  height: 100%;
+}
+.dds-group-button #dash-post-status{
+  height: 100%;
+}
+select{
+  border-radius: 7px;
+  padding-left:25px;
+  border: 1px solid #dedede;
+    color: #7e879a;
+    background:white;
+    width: 100%;
+}
+option{
+  background:white;
+}
+
+
+.dash-status-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 100px;
+}
+.dash-post-status-dot span {
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 100px;
+}
+
+.dash-status-dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.dash-post-status-dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 }

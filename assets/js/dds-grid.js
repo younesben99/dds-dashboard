@@ -106,6 +106,7 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
         }
         if(opt == "nglive"){
@@ -118,6 +119,7 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
         }
         if(opt == "live"){
@@ -130,6 +132,7 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
         }
     });
@@ -150,6 +153,7 @@
         },
         function(data,status){
           console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
         });
 
 
@@ -164,6 +168,7 @@
         },
         function(data,status){
           console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
         });
       }
       if(opt == "verkocht"){
@@ -176,11 +181,12 @@
         },
         function(data,status){
           console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
         });
       }
   });
 
-      
+  
     
 });
 
