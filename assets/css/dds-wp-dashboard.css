@@ -11,9 +11,12 @@ input#title {
 #screen-meta-links{
   display:none;
 }
-#adminmenuback,#acf-group_jupiterx_post,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
+#adminmenuback,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
     display:none;
     
+}
+#acf-group_jupiterx_post{
+  display:none !important;
 }
 #wpcontent, #wpfooter {
     margin-left: 0;
