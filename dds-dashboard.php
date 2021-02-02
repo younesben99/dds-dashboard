@@ -25,7 +25,7 @@ function add_admin_style_scripts( $hook ) {
     if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
         if ( 'autos' === $post->post_type ) {     
             wp_enqueue_script(  'dds-wp-dashboard-js', plugin_dir_url( __FILE__ ).'/assets/js/dds-wp-dashboard.js');
-            wp_enqueue_style('dds-wp-dashboard-css', plugin_dir_url( __FILE__ ).'/assets/css/dds-wp-dashboard.css');
+            wp_enqueue_style('dds-wp-dashboard-css', plugin_dir_url( __FILE__ ).'/assets/css/dds-wp-dashboard.css?v=1');
             wp_enqueue_style('lineicons', 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css');
             include(__DIR__ . '/templates/nav.php');
            
