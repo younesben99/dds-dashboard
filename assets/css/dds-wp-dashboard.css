@@ -11,7 +11,7 @@ input#title {
 #screen-meta-links{
   display:none;
 }
-#adminmenuback,#heateor_sss_meta,.elementor-message,.notice-warning,#rocket_post_exclude,#purge-action,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
+#adminmenuback,#heateor_sss_meta,#wpbf,#wpbf_sidebar,.elementor-message,.notice-warning,#rocket_post_exclude,#purge-action,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
     display:none;
     
 }
