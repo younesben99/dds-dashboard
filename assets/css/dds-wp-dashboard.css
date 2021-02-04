@@ -11,7 +11,7 @@ input#title {
 #screen-meta-links{
   display:none;
 }
-#adminmenuback,#rocket_post_exclude,#purge-action,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
+#adminmenuback,.elementor-message,.notice-warning,#rocket_post_exclude,#purge-action,#adminmenuwrap,#wpadminbar,#merkenmodeldiv,#wpfooter,#edit-slug-box,#carmodifieddate-input,#caruniq-input,#visibility,.misc-pub-section,#minor-publishing-actions{
     display:none;
     
 }
@@ -144,10 +144,7 @@ div#message {
 #car_social_push h2.hndle.ui-sortable-handle {
     font-size: 12px !important;
 }
-div#fbpush,div#igpush {
-    width: 100%;
-    padding: 8px;
-}
+
 a.submitdelete.deletion {
     display: none;
 }

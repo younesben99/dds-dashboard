@@ -11,7 +11,6 @@
         });
       });
         $(".wrap").on("click",function(){
-            console.log("hey");
             if ($('.navwrapper').is(":visible") && $(window).width() < 1250) {
               anime({
                 targets: '.navwrapper',
