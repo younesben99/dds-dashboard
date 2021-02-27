@@ -150,6 +150,45 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
+		add_settings_field(
+			'dealer_contact_mail', // id
+			'Dealer Mail', // title
+			array( $this, 'dealer_contact_mail_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+
+		add_settings_field(
+			'primary_color', // id
+			'Primary Color', // title
+			array( $this, 'primary_color_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+
+		add_settings_field(
+			'hover_color', // id
+			'Hover Color', // title
+			array( $this, 'hover_color_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'troeven_shortcode', // id
+			'Troeven shortcode', // title
+			array( $this, 'troeven_shortcode_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'slideshow_type', // id
+			'Slideshow type', // title
+			array( $this, 'slideshow_type_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+
 	}
 
 	public function dds_settings_sanitize($input) {
@@ -204,6 +243,26 @@ class DDSSettings {
 
 		if ( isset( $input['dealer_tel_3_12'] ) ) {
 			$sanitary_values['dealer_tel_3_12'] = sanitize_text_field( $input['dealer_tel_3_12'] );
+		}
+
+		if ( isset( $input['dealer_contact_mail'] ) ) {
+			$sanitary_values['dealer_contact_mail'] = sanitize_text_field( $input['dealer_contact_mail'] );
+		}
+
+		if ( isset( $input['primary_color'] ) ) {
+			$sanitary_values['primary_color'] = sanitize_text_field( $input['primary_color'] );
+		}
+
+		if ( isset( $input['hover_color'] ) ) {
+			$sanitary_values['hover_color'] = sanitize_text_field( $input['hover_color'] );
+		}
+
+		if ( isset( $input['troeven_shortcode'] ) ) {
+			$sanitary_values['troeven_shortcode'] = sanitize_text_field( $input['troeven_shortcode'] );
+		}
+
+		if ( isset( $input['slideshow_type'] ) ) {
+			$sanitary_values['slideshow_type'] = sanitize_text_field( $input['slideshow_type'] );
 		}
 
 		return $sanitary_values;
@@ -302,7 +361,42 @@ class DDSSettings {
 			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_tel_3_12]" id="dealer_tel_3_12" value="%s">',
 			isset( $this->dds_settings_options['dealer_tel_3_12'] ) ? esc_attr( $this->dds_settings_options['dealer_tel_3_12']) : ''
 		);
-    }
+	}
+
+	public function dealer_contact_mail_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_contact_mail]" id="dealer_contact_mail" value="%s">',
+			isset( $this->dds_settings_options['dealer_contact_mail'] ) ? esc_attr( $this->dds_settings_options['dealer_contact_mail']) : ''
+		);
+	}
+
+	public function primary_color_callback() {
+		printf(
+			'<input class="regular-text" type="color" name="dds_settings_option_name[primary_color]" id="primary_color" value="%s">',
+			isset( $this->dds_settings_options['primary_color'] ) ? esc_attr( $this->dds_settings_options['primary_color']) : ''
+		);
+	}
+
+	public function hover_color_callback() {
+		printf(
+			'<input class="regular-text" type="color" name="dds_settings_option_name[hover_color]" id="hover_color" value="%s">',
+			isset( $this->dds_settings_options['hover_color'] ) ? esc_attr( $this->dds_settings_options['hover_color']) : ''
+		);
+	}
+	
+	public function troeven_shortcode_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[troeven_shortcode]" id="troeven_shortcode" value="%s" placeholder="[shortcode]">',
+			isset( $this->dds_settings_options['troeven_shortcode'] ) ? esc_attr( $this->dds_settings_options['troeven_shortcode']) : ''
+		);
+	}
+
+	public function slideshow_type_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[slideshow_type]" id="slideshow_type" value="%s" placeholder="slideshow | grid">',
+			isset( $this->dds_settings_options['slideshow_type'] ) ? esc_attr( $this->dds_settings_options['slideshow_type']) : ''
+		);
+	}
    
 
 }
