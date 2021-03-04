@@ -188,6 +188,13 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		add_settings_field(
+			'sp_locatie_link', // id
+			'Locatie link', // title
+			array( $this, 'sp_locatie_link_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 
 	}
 
@@ -265,6 +272,10 @@ class DDSSettings {
 			$sanitary_values['slideshow_type'] = sanitize_text_field( $input['slideshow_type'] );
 		}
 
+		if ( isset( $input['sp_locatie_link'] ) ) {
+			$sanitary_values['sp_locatie_link'] = sanitize_text_field( $input['sp_locatie_link'] );
+		}
+		
 		return $sanitary_values;
 	}
 
@@ -339,6 +350,13 @@ class DDSSettings {
 		printf(
 			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_adres_9]" id="dealer_adres_9" value="%s">',
 			isset( $this->dds_settings_options['dealer_adres_9'] ) ? esc_attr( $this->dds_settings_options['dealer_adres_9']) : ''
+		);
+	}
+	
+	public function sp_locatie_link_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[sp_locatie_link]" id="sp_locatie_link" value="%s" placeholder="Google maps link">',
+			isset( $this->dds_settings_options['sp_locatie_link'] ) ? esc_attr( $this->dds_settings_options['sp_locatie_link']) : ''
 		);
 	}
 
