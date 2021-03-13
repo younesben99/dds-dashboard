@@ -65,6 +65,7 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
 
 
@@ -79,6 +80,7 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
         }
         if(opt == "live"){
@@ -91,11 +93,59 @@
           },
           function(data,status){
             console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
           });
         }
     });
 
-    
+    $( "#dds-grid" ).on( "change", "#dash-post-status", function( event ) {
+      console.log("test");
+      event.preventDefault();
+      console.log( $( this ).val() );
+      var opt = $( this ).val();
+      if(opt == "tekoop"){
+        $(this).prev(".dash-post-status-dot").find("span").removeClass();
+        $(this).prev(".dash-post-status-dot").find("span").addClass("tekoop");  
+        
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          dashpoststatus: "tekoop",
+          postid: $(this).find("option").attr("data-post-id")
+        },
+        function(data,status){
+          console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
+        });
+
+
+      }
+      if(opt == "gereserveerd"){
+        $(this).prev(".dash-post-status-dot").find("span").removeClass();
+        $(this).prev(".dash-post-status-dot").find("span").addClass("gereserveerd");
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          dashpoststatus: "gereserveerd",
+          postid: $(this).find("option").attr("data-post-id")
+        },
+        function(data,status){
+          console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
+        });
+      }
+      if(opt == "verkocht"){
+        $(this).prev(".dash-post-status-dot").find("span").removeClass();
+        $(this).prev(".dash-post-status-dot").find("span").addClass("verkocht");
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          dashpoststatus: "verkocht",
+          postid: $(this).find("option").attr("data-post-id")
+        },
+        function(data,status){
+          console.log(data + status);
+          toastr.success('Wagen succesvol geupdate');
+        });
+      }
+  });
   
       $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
       {
