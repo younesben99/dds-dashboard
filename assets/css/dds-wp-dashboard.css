@@ -213,7 +213,9 @@ input#publish:hover{
 border-radius: 6px;
 margin: 10px !important;    
 width: 87px;
-}div#wpwrap {
+height: 67px;
+}
+div#wpwrap {
   position: absolute;
   width: 80%;
   left: 20%;
