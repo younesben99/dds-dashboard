@@ -1,6 +1,7 @@
 (function($) {
 
     $(document).ready(function(){
+      
       $("#loguit").on("click",function(){
         $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
         {
