@@ -9,13 +9,32 @@ function display_admin_card($post){
         $selected_img_url = wp_get_attachment_image_src($manual_images[0],'medium');
         $selected_img = $selected_img_url[0];
     }
+
+
+    $uitgelichte_opt = get_option("uitgelichtewagens");
+
+    if(is_array($uitgelichte_opt)){
+      if(in_array($post->ID,$uitgelichte_opt)){
+        $uw_icon = "fa fa-star";
+      }
+      else{
+        $uw_icon = "fa fa-star-o";
+      }
+    }
+
+
     ?>
 
 <div class="card">
-
+  
   <img src="<?php echo $selected_img;?>" class="card-img-top" alt="<?php echo get_the_title($post);?>">
   <div class="card-body">
+    <div style="display: flex;
+    justify-content: space-between;">
     <h5 class="card-title"><?php echo get_the_title($post);?></h5>
+    <div class="uitgelicht_toggle" data-car-id="<?php echo($post->ID); ?>"><i class="<?php echo($uw_icon); ?>"></i></div>
+    </div>
+    
     <div class="hr"></div>
     <div class="dds-group-button">
       <a href="<?php echo get_home_url();?>/wp-admin/post.php?post=<?php echo($post->ID); ?>&amp;action=edit"

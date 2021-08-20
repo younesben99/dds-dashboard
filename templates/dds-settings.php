@@ -195,6 +195,40 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		add_settings_field(
+			'sp_contact_shortcode', // id
+			'SCP Contact shortcode <br><small style="font-size:8px;color:grey;font-weight:300;">[dds_form style="modern" name="scpbeschikbaarheid" type="beschikbaarheid"]
+			[dds_input name="Volledige naam" lb="Volledige naam"]
+			[dds_input name="emailadres" lb="E-mailadres"]
+			[dds_input name="telefoonnummer" lb="Telefoonnummer"]
+			[dds_input ty="textarea" len="1000" name="bericht" ph="" lb="Bericht (optioneel)"]
+			[dds_submit]
+			[close_dds_form]</small>', // title
+			array( $this, 'sp_contact_shortcode_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'sp_testrit_shortcode', // id
+			'SCP Testrit shortcode <br><small style="font-size:8px;color:grey;font-weight:300;">[dds_form style="modern" name="scptestrit" type="afspraak"]
+			[dds_select name="datum" ph="Selecteer datum" lb="Datum"]
+			[dds_select name="tijd" ph="Selecteer tijd" lb="Tijd"]
+			[dds_input name="Volledige naam" lb="Volledige naam"]
+			[dds_input name="emailadres" lb="E-mailadres"]
+			[dds_input name="telefoonnummer" lb="Telefoonnummer"]
+			[dds_input ty="textarea" len="1000" name="bericht" ph="" lb="Bericht (optioneel)"]
+			[dds_submit] [close_dds_form]</small>', // title
+			array( $this, 'sp_testrit_shortcode_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'carousel_grid_id', // id
+			'carousel_grid_id', // title
+			array( $this, 'carousel_grid_id_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 
 	}
 
@@ -274,6 +308,17 @@ class DDSSettings {
 
 		if ( isset( $input['sp_locatie_link'] ) ) {
 			$sanitary_values['sp_locatie_link'] = sanitize_text_field( $input['sp_locatie_link'] );
+		}
+		
+		if ( isset( $input['sp_contact_shortcode'] ) ) {
+			$sanitary_values['sp_contact_shortcode'] = $input['sp_contact_shortcode'];
+		}
+
+		if ( isset( $input['sp_testrit_shortcode'] ) ) {
+			$sanitary_values['sp_testrit_shortcode'] = $input['sp_testrit_shortcode'];
+		}
+		if ( isset( $input['carousel_grid_id'] ) ) {
+			$sanitary_values['carousel_grid_id'] = $input['carousel_grid_id'];
 		}
 		
 		return $sanitary_values;
@@ -415,7 +460,27 @@ class DDSSettings {
 			isset( $this->dds_settings_options['slideshow_type'] ) ? esc_attr( $this->dds_settings_options['slideshow_type']) : ''
 		);
 	}
+
+	public function sp_contact_shortcode_callback() {
+		printf(
+			'<textarea class="regular-text" type="text" name="dds_settings_option_name[sp_contact_shortcode]" id="sp_contact_shortcode"  rows="8"  placeholder="sp_contact_shortcode">%s</textarea>',
+			isset( $this->dds_settings_options['sp_contact_shortcode'] ) ? esc_attr( $this->dds_settings_options['sp_contact_shortcode']) : ''
+		);
+	}
+
+	public function sp_testrit_shortcode_callback() {
+		printf(
+			'<textarea class="regular-text" type="text" name="dds_settings_option_name[sp_testrit_shortcode]" id="sp_testrit_shortcode"  rows="8"  placeholder="sp_testrit_shortcode">%s</textarea>',
+			isset( $this->dds_settings_options['sp_testrit_shortcode'] ) ? esc_attr( $this->dds_settings_options['sp_testrit_shortcode']) : ''
+		);
+	}
    
+	public function carousel_grid_id_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[carousel_grid_id]" id="carousel_grid_id" value="%s" placeholder="grid id nr">',
+			isset( $this->dds_settings_options['carousel_grid_id'] ) ? esc_attr( $this->dds_settings_options['carousel_grid_id']) : ''
+		);
+	}
 
 }
 if ( is_admin() ){

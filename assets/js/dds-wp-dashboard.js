@@ -1,7 +1,29 @@
 (function($) {
 
     $(document).ready(function(){
-      
+      var carid = jQuery(".uitlichten").attr("data-car-id");
+
+      $(".uitlichten").on("click",function(){
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          push: "uitlichten",
+          carid: carid
+        },
+        function(data){
+          console.log(data);
+          if(data == "toegevoegd"){
+            
+            $(".uitlichten").addClass("uitgelichtelink");
+          }
+
+          if(data == "verwijderd"){
+            
+            $(".uitlichten").removeClass("uitgelichtelink");
+
+          }
+        });
+      });
+
       $("#loguit").on("click",function(){
         $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
         {

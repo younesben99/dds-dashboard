@@ -54,6 +54,42 @@ if(isset($_POST['logout'])){
 //ALLE DATA
 
 if(isset($_POST['push'])){
+
+
+  if($_POST['push'] == "uitlichten"){
+
+    $carid = $_POST['carid']; 
+    $currentcars = get_option("uitgelichtewagens");
+
+    if(!is_array($currentcars)){
+      $currentcars = array();
+    }
+
+    if(!in_array($carid,$currentcars)){
+      array_push($currentcars,$carid);
+      update_option("uitgelichtewagens",$currentcars);
+
+      echo("toegevoegd");
+    }
+    else{
+
+      $key = array_search($carid,$currentcars);
+      unset($currentcars[$key]);
+
+      update_option("uitgelichtewagens",$currentcars);
+
+      echo("verwijderd");
+
+
+    }
+   
+   
+    
+
+    
+  }
+
+
   if($_POST['push'] == "allcars"){
     $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1) );
     foreach ($allposts as $post) {

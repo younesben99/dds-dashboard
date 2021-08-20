@@ -200,6 +200,11 @@ div#dds-grid {
   min-width:110px;
   max-width: 130px;
 }
+.uitgelicht_toggle{
+  cursor: pointer;
+  color: #e3a820 !important;
+  font-size: 20px;
+}
 .merkitem{
   cursor:pointer;
 }.ds-selected {

@@ -2,6 +2,8 @@
 
     $(document).ready(function(){
     
+     
+
       $(".innercontent").on("click",function(){
         if ($('.navwrapper').is(":visible") && $(window).width() < 700) {
           anime({
@@ -186,6 +188,33 @@
       }
   });
 
+  $( "#dds-grid" ).on( "click", ".uitgelicht_toggle", function( event ) {
+
+    var uitgelicht = $(this);
+
+    $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+    {
+      push: "uitlichten",
+      carid: $(this).attr("data-car-id")
+    },
+    function(data){
+      console.log(data);
+      if(data == "toegevoegd"){
+       
+        $(uitgelicht).find("i").removeClass();
+        $(uitgelicht).find("i").addClass("fa fa-star");
+        toastr.success('Wagen uitgelicht');
+      }
+
+      if(data == "verwijderd"){
+        
+        $(uitgelicht).find("i").removeClass();
+        $(uitgelicht).find("i").addClass("fa fa-star-o");
+        toastr.warning('Wagen niet meer uitgelicht');
+
+      }
+    });
+  });
   
     
 });
