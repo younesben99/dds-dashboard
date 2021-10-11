@@ -420,3 +420,11 @@ div#dds-grid {
   margin-right: 10px;
 }
 }
+.trash_car{
+  cursor:pointer;
+  color: #b70404;
+  font-weight: bold;
+}
+.trash_car:hover{
+  color: #750000;
+}

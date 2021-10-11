@@ -2,13 +2,24 @@
 function display_admin_card($post){
     $carsync_images = get_post_meta($post->ID, '_car_syncimages_key', true);
     $manual_images = get_post_meta($post->ID, 'vdw_gallery_id', true);
-    if($manual_images == null){
+    if(empty($manual_images) && empty($carsync_images)){
+
+      $selected_img = "https://digiflowroot.be/static/images/camera_image.jpg";
+    } 
+    else{
+      if($manual_images == null){
         $selected_img = $carsync_images[0];
     }
     else{
-        $selected_img_url = wp_get_attachment_image_src($manual_images[0],'medium');
-        $selected_img = $selected_img_url[0];
+      if ($manual_images[0] !== 1) {
+          $selected_img_url = wp_get_attachment_image_src($manual_images[0], 'medium');
+          $selected_img = $selected_img_url[0];
+      }else{
+        $selected_img = "https://digiflowroot.be/static/images/camera_image.jpg";
+      }
     }
+    }
+    
 
 
     $uitgelichte_opt = get_option("uitgelichtewagens");
@@ -32,7 +43,22 @@ function display_admin_card($post){
     <div style="display: flex;
     justify-content: space-between;">
     <h5 class="card-title"><?php echo get_the_title($post);?></h5>
-    <div class="uitgelicht_toggle" data-car-id="<?php echo($post->ID); ?>"><i class="<?php echo($uw_icon); ?>"></i></div>
+    
+    <?php
+      if(get_post_meta($post->ID, '_car_post_status_key', true) == 'archief'){
+        ?>
+<div class="trash_car" data-id="<?php echo($post->ID); ?>"><i class="icon-trash"></i></div>
+<?php
+      }   
+      else{
+
+        ?>
+ <div class="uitgelicht_toggle" data-car-id="<?php echo($post->ID); ?>"><i class="<?php echo($uw_icon); ?>"></i></div>
+        <?php
+      }
+    ?>
+   
+    
     </div>
     
     <div class="hr"></div>

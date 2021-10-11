@@ -126,7 +126,13 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
-
+		add_settings_field(
+			'dealer_city_9', // id
+			'Dealer city', // title
+			array( $this, 'dealer_city_9_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 		add_settings_field(
 			'dealer_tel_1_10', // id
 			'Dealer Tel 1', // title
@@ -158,7 +164,13 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
-
+		add_settings_field(
+			'dealer_btw', // id
+			'Dealer BTW nr', // title
+			array( $this, 'dealer_btw_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 		add_settings_field(
 			'primary_color', // id
 			'Primary Color', // title
@@ -229,11 +241,30 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		add_settings_field(
+			'pdf_logo_base64', // id
+			'pdf_logo_base64', // title
+			array( $this, 'pdf_logo_base64_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'inmotiv_allow', // id
+			'Inmotiv metabox?', // title
+			array( $this, 'inmotiv_allow_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 
 	}
 
 	public function dds_settings_sanitize($input) {
 		$sanitary_values = array();
+		
+		if ( isset( $input['inmotiv_allow'] ) ) {
+			$sanitary_values['inmotiv_allow'] = sanitize_text_field( $input['inmotiv_allow'] );
+		}
+
 		if ( isset( $input['autoscout_graphql_api_key_0'] ) ) {
 			$sanitary_values['autoscout_graphql_api_key_0'] = sanitize_text_field( $input['autoscout_graphql_api_key_0'] );
 		}
@@ -272,6 +303,10 @@ class DDSSettings {
 
 		if ( isset( $input['dealer_adres_9'] ) ) {
 			$sanitary_values['dealer_adres_9'] = sanitize_text_field( $input['dealer_adres_9'] );
+		}
+
+		if ( isset( $input['dealer_city_9'] ) ) {
+			$sanitary_values['dealer_city_9'] = sanitize_text_field( $input['dealer_city_9'] );
 		}
 
 		if ( isset( $input['dealer_tel_1_10'] ) ) {
@@ -319,6 +354,12 @@ class DDSSettings {
 		}
 		if ( isset( $input['carousel_grid_id'] ) ) {
 			$sanitary_values['carousel_grid_id'] = $input['carousel_grid_id'];
+		}
+		if ( isset( $input['pdf_logo_base64'] ) ) {
+			$sanitary_values['pdf_logo_base64'] = $input['pdf_logo_base64'];
+		}
+		if ( isset( $input['dealer_btw'] ) ) {
+			$sanitary_values['dealer_btw'] = $input['dealer_btw'];
 		}
 		
 		return $sanitary_values;
@@ -395,6 +436,13 @@ class DDSSettings {
 		printf(
 			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_adres_9]" id="dealer_adres_9" value="%s">',
 			isset( $this->dds_settings_options['dealer_adres_9'] ) ? esc_attr( $this->dds_settings_options['dealer_adres_9']) : ''
+		);
+	}
+
+	public function dealer_city_9_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_city_9]" id="dealer_city_9" value="%s">',
+			isset( $this->dds_settings_options['dealer_city_9'] ) ? esc_attr( $this->dds_settings_options['dealer_city_9']) : ''
 		);
 	}
 	
@@ -481,6 +529,28 @@ class DDSSettings {
 			isset( $this->dds_settings_options['carousel_grid_id'] ) ? esc_attr( $this->dds_settings_options['carousel_grid_id']) : ''
 		);
 	}
+
+	public function pdf_logo_base64_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[pdf_logo_base64]" id="pdf_logo_base64" value="%s" placeholder="pdf_logo_base64">',
+			isset( $this->dds_settings_options['pdf_logo_base64'] ) ? esc_attr( $this->dds_settings_options['pdf_logo_base64']) : ''
+		);
+	}
+
+	public function dealer_btw_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_btw]" id="dealer_btw" value="%s" placeholder="dealer_btw">',
+			isset( $this->dds_settings_options['dealer_btw'] ) ? esc_attr( $this->dds_settings_options['dealer_btw']) : ''
+		);
+	}
+
+	public function inmotiv_allow_callback() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[inmotiv_allow]" id="inmotiv_allow" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['inmotiv_allow'] ) ? esc_attr( $this->dds_settings_options['inmotiv_allow']) : ''
+		);
+	}
+
 
 }
 if ( is_admin() ){

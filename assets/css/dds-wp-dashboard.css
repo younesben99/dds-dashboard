@@ -10,8 +10,17 @@ appearance: none;
 * {
     font-family: "Montserrat",Arial;
 }
-input#title {
+input#title,.wpseo-metabox {
     display: none;
+}
+#poststuff .inside {
+  display: block !important;
+}
+.hndle{
+  cursor:default !important;
+}
+.metabox-holder .postbox-container .meta-box-sortables {
+  position: inherit !important;
 }
 #screen-meta-links{
   display:none;
@@ -55,7 +64,8 @@ input#title {
   cursor:pointer;
 }
 .statusflex{
-  display:flex;flex-direction:row;justify-content: center;
+  display:flex;flex-direction:row;justify-content: space-between;
+  margin-bottom: 20px;
 }
 input#carwagentitel-input {
     display: block;
@@ -75,6 +85,7 @@ div#post-body {
 div#postbox-container-1 {
   width: 30% !important;
   margin: 0px 20px;
+  position: sticky;
 }
 
 div#postbox-container-2 {
@@ -83,6 +94,12 @@ div#postbox-container-2 {
 
 #poststuff #post-body.columns-2{
   margin-right:unset;
+}
+.ab_cb_group{
+  width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #post-body.columns-2 #postbox-container-1 {
   float: unset;
@@ -129,10 +146,10 @@ div#message {
     left:20%;
     z-index:1000;
 }
-#car_gegevens label {
+ .carinputswrap label {
     padding: 18px 2px 7px;
     font-weight: 500;
-}
+} 
 .socialwrap {
     width: 100%;
 }
@@ -180,7 +197,7 @@ a.page-title-action {
 }
 input#publish {
   color: white;
-  width: 50%;
+  width: 100%;
   font-size: 16px;
   border: 0;
   color: #ffffff;
@@ -194,8 +211,9 @@ input#publish {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 0px solid #20aee3;
-  box-shadow: 0px 0px 0px #ffffff00;
+  border: 2px solid #0084b5;
+  box-shadow: 0px 0px 0px #1a1a1a00;
+  height: 60px;
 }
 #major-publishing-actions {
   background: #f6f9fa;
@@ -226,8 +244,7 @@ div#wpwrap {
   display: flex;
   align-items: center;
   height: 40px;
-  width: 48%;
-  margin-right: 20px;
+  width: 49%;
   min-width:130px;
  
   margin-top:10px;
@@ -236,8 +253,7 @@ div#wpwrap {
   display: flex;
   align-items: center;
   height: 40px;
-  width: 48%;
-  margin-right: 20px;
+  width: 49%;
   min-width:130px;
   
   margin-top:10px;
@@ -308,6 +324,9 @@ div#wpwrap {
   @media only screen and (max-width: 800px) {
     
   
+.aankoopborderel_popup_wrap{
+  overflow-y: scroll;
+}
     #wpbody {
       padding-top: 0;
   }
@@ -458,6 +477,13 @@ div#dds-grid {
 }
 
 @media screen and (max-width: 782px){
+  .aankoopborderel_popup {
+    position: absolute;
+    top: 7%;
+}
+  .ab_cb_group{
+    margin-bottom: 15px;
+  }
   div#postbox-container-1 {
     z-index: 1;
 }
@@ -742,20 +768,44 @@ option{
 
 
 .autodataophalen {
-  width: 45%;
+  width: 100%;
 min-width: 200px;
 text-align: center;
 background: #56c104;
 color: white;
 height: 60px;
 display: flex;
-justify-content: center;
+justify-content: space-evenly;
 align-items: center;
-border-radius: 7px;
-font-size: 16px;
+border-radius: 3px;
+font-size: 14px;
 border: 2px solid #4fb500;
-padding: 0 20px;
 margin-bottom:20px;
+
+}
+.tooninmotivgegevens{
+  width: 100%;
+  min-width: 200px;
+  text-align: center;
+  background: #f3f5f6;
+  color: #636363;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid #cecece;
+  margin-bottom:20px;
+  cursor:pointer;
+  padding: 0 25px;
+}
+.tooninmotivgegevens i{
+padding-right:20px;
+}
+.tooninmotivgegevens:hover{
+  border-color: #0a4b78;
+  color: #0a4b78;
 }
 .autodataophalen:hover{
   background: #52b308;
@@ -763,20 +813,21 @@ margin-bottom:20px;
 }
 .autodataophalen_sec {
   margin-bottom: 10px;
-    width: 219px;
+  width: 100%;
     min-width: 140px;
     text-align: center;
-    background: #eeeeee;
+    background: #f3f5f6;
     color: #2f2f2f;
     height: 38px;
     display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 7px;
+  border-radius: 3px;
   font-size: 12px;
   border: 1px solid #b4b4b4;
   padding: 0 20px;
   cursor: pointer;
+  border-color: #cecece;
 }
 
 .autodataophalen:hover{
@@ -786,7 +837,7 @@ cursor:pointer;
 width: 100% !important;
 }
 
-#car_gegevens label,.labeldiv label {
+.carinputswrap label,.labeldiv label {
 padding: 18px 0 5px;
 font-weight: 600
 }
@@ -827,13 +878,16 @@ height: 42px !important
   display:none;
 }
 .showmoreselectief{
-  padding: 5px 10px;
+  padding: 5px 0px;
   border:1px solid rgb(180, 180, 180);
-  background:rgb(238, 238, 238);
+  background:rgb(243 245 246);
   font-size:10px;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor:pointer;
   margin-bottom:25px;
+  width: 100%;
+  text-align:center;
+  display:none;
 }
 .dashchev{
   font-size:13px;margin-bottom:0px;height:10px;width:10px;margin-right:10px;
@@ -851,10 +905,11 @@ height: 42px !important
   text-align: right;
   display: flex;
   position: absolute;
-  right: 43%;
+  right: 10%;
   top: 53px;
   opacity: 0;
   transition:0.2s;
+  
 }.postbox-header {
   border-bottom: 0 !important;
 }
@@ -862,3 +917,110 @@ height: 42px !important
   border-bottom: 1px solid #c3c4c7;
 }
 
+#car_gegevens{
+  border: 0;
+  background: transparent;
+}
+.select2-container--default.select2-container--disabled .select2-selection--single {
+  background-color: #fbfbfb !important;
+}
+.trumbowyg-editor {
+  background: white;
+}
+
+.select2-container--default .select2-selection--single {
+  border: 1px solid #ccd0d4 !important;
+}
+.trumbowyg-button-pane {
+  z-index: 0 !important;
+}
+.aankoopborderel_popup {
+  max-height: 70vh;
+  overflow: scroll;
+}
+
+
+.aankoopborderel_popup_wrap{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000 !important;
+  background: #b1b1b126;
+  display:none;
+  overflow-y: scroll;
+}
+.hidefields{
+  display: none;
+}
+.toonhiddenfields{
+
+  width: 100px;
+    text-align: center;
+    padding: 3Px;
+    font-size: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccd0d4;cursor:pointer;
+    background:#F3F5F6;
+}
+.toonhiddenfields:hover{
+
+  text-decoration: underline;
+}
+.aankoopborderel_popup{
+    display: block;
+    width: 50%;
+    background: white;
+    padding: 50px;
+    border-radius: 4px;
+    border: 1px solid #c3c4c7;
+    max-width: 450px;
+}
+
+.aankoopborderel_popup .pdfbtn{
+  color: white;
+  width: 100%;
+  font-size: 16px;
+  border: 0;
+  color: #ffffff;
+  background: #20aee3;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: 500;
+  border-radius: 7px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid #0084b5;
+  box-shadow: 0px 0px 0px #1a1a1a00;
+  height: 60px;
+  cursor:pointer;
+  margin-top:15px;
+}
+#aankoopborderel_pop_close{
+  font-size: 20px;
+  margin-top: -22px;
+  cursor: pointer;
+  width: 25px;
+  text-align: center;
+  float: right;
+}
+.aankoopborderel_popup .pdfbtn:hover{
+  background: #1085af;
+}
+.aankoopborderel_popup input[type=text] {
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 3px 10px;
+  margin-top: 5px;
+}
+
+
+div#message {
+  width: 300px !important;
+}

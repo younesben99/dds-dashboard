@@ -1,6 +1,28 @@
 (function($) {
 
     $(document).ready(function(){
+
+
+      $( "#dds-grid" ).on( "click", ".trash_car", function( event ) {
+      
+        var id = $(this).attr("data-id");
+        var post = $(this);
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+        {
+          removepost: id
+        },
+        function(data, status){
+          $(post).parents(".card").fadeOut();
+          Swal.fire(
+            'Auto is verwijderd',
+            '',
+            'success'
+          )
+        });
+        
+      
+      });
+
       $("#loguit").on("click",function(){
         $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
         {
@@ -99,7 +121,7 @@
     });
 
     $( "#dds-grid" ).on( "change", "#dash-post-status", function( event ) {
-      console.log("test");
+      
       event.preventDefault();
       console.log( $( this ).val() );
       var opt = $( this ).val();

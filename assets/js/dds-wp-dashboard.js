@@ -1,6 +1,8 @@
 (function($) {
 
     $(document).ready(function(){
+
+
       var carid = jQuery(".uitlichten").attr("data-car-id");
 
       $(".uitlichten").on("click",function(){
@@ -76,3 +78,4 @@
 });
 
 })(jQuery);    
+

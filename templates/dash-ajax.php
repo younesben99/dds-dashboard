@@ -51,6 +51,14 @@ if(isset($_POST['logout'])){
   }
 
 }
+
+
+if(isset($_POST['removepost'])){
+
+  wp_delete_post($_POST['removepost']);
+ 
+}
+
 //ALLE DATA
 
 if(isset($_POST['push'])){

@@ -1,8 +1,6 @@
 (function($) {
 
     $(document).ready(function(){
-    
-     
 
       $(".innercontent").on("click",function(){
         if ($('.navwrapper').is(":visible") && $(window).width() < 700) {
