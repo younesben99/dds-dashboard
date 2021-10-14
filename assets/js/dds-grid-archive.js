@@ -13,11 +13,7 @@
         },
         function(data, status){
           $(post).parents(".card").fadeOut();
-          Swal.fire(
-            'Auto is verwijderd',
-            '',
-            'success'
-          )
+          toastr.success('Wagen succesvol verwijderd.');
         });
         
       
