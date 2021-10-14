@@ -54,9 +54,12 @@ if(isset($_POST['logout'])){
 
 
 if(isset($_POST['removepost'])){
-
-  wp_delete_post($_POST['removepost']);
- 
+$postid = $_POST['removepost'];
+  update_post_meta($postid,"_car_post_status_key","trash");
+  wp_update_post(array(
+    'ID'    =>  $postid,
+    'post_status'   =>  'private'
+    ));
 }
 
 //ALLE DATA
