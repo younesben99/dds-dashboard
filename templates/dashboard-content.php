@@ -49,7 +49,8 @@ if(is_user_logged_in()){
         
         $dsposts = get_posts(array(
           'post_type' => 'autos',
-          'numberposts' => -1
+          'numberposts' => -1,
+          'post_status' => 'any'
           
         ));
         $merkenlijst = array();
@@ -58,7 +59,7 @@ if(is_user_logged_in()){
 
           $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
 
-          if($status == "actief" ){
+          if($status == "actief" || $status == "concept"  ){
             $counter++;
             $term = get_the_terms($dspost, "merkenmodel");
             if (is_array($term) || is_object($term))

@@ -20,6 +20,7 @@ if(isset($_POST['dashpoststatus'])){
     echo($postid . " is aangepast");
   }
   
+  
 }
 
 if(isset($_POST['dashstatus'])){
@@ -39,6 +40,13 @@ if(isset($_POST['dashstatus'])){
     $postid = $_POST['postid'];
     update_post_meta($postid, '_car_sync_key', 'YES');
     update_post_meta($postid, '_car_post_status_key', 'actief');
+    echo($postid . " is aangepast");
+  }
+  if($_POST['dashstatus'] == "concept"){
+    $postid = $_POST['postid'];
+    update_post_meta($postid, '_car_sync_key', 'NO');
+    update_post_meta($postid, '_car_post_status_key', 'concept');
+    wp_update_post(array( 'ID' => $postid, 'post_status' => "draft" ));
     echo($postid . " is aangepast");
   }
   
@@ -102,10 +110,10 @@ if(isset($_POST['push'])){
 
 
   if($_POST['push'] == "allcars"){
-    $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1) );
+    $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1, 'post_status' => 'any') );
     foreach ($allposts as $post) {
       $status = get_post_meta( $post->ID, '_car_post_status_key', true );
-      if($status == "actief" ){
+      if($status == "actief" || $status == "concept" ){
         display_admin_card($post);
       }
     }
@@ -149,7 +157,7 @@ if(isset($_POST['push'])){
 
 if(isset($_POST['archive'])){
   if($_POST['archive'] == "allcars"){
-    $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1) );
+    $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1, 'post_status' => 'any') );
     foreach ($allposts as $post) {
       $status = get_post_meta( $post->ID, '_car_post_status_key', true );
       if($status == "archief" ){

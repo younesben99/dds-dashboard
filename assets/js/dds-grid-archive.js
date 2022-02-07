@@ -114,6 +114,20 @@
             toastr.success('Wagen succesvol geupdate');
           });
         }
+        if(opt == "concept"){
+          $(this).prev(".dash-status-dot").find("span").removeClass();
+          $(this).prev(".dash-status-dot").find("span").addClass("concept");
+          console.log($(this).find("option").attr("data-post-id"));
+          $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
+          {
+            dashstatus: "concept",
+            postid: $(this).find("option").attr("data-post-id")
+          },
+          function(data,status){
+            console.log(data + status);
+            toastr.success('Wagen succesvol geupdate');
+          });
+        }
     });
 
     $( "#dds-grid" ).on( "change", "#dash-post-status", function( event ) {
