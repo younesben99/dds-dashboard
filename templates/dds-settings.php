@@ -172,6 +172,13 @@ class DDSSettings {
 			'dds_settings_setting_section' // section
 		);
 		add_settings_field(
+			'dealer_bank', // id
+			'Dealer Bank gegevens', // title
+			array( $this, 'dealer_bank_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
 			'primary_color', // id
 			'Primary Color', // title
 			array( $this, 'primary_color_callback' ), // callback
@@ -361,7 +368,10 @@ class DDSSettings {
 		if ( isset( $input['dealer_btw'] ) ) {
 			$sanitary_values['dealer_btw'] = $input['dealer_btw'];
 		}
-		
+		if ( isset( $input['dealer_bank'] ) ) {
+			$sanitary_values['dealer_bank'] = $input['dealer_bank'];
+		}
+
 		return $sanitary_values;
 	}
 
@@ -541,6 +551,13 @@ class DDSSettings {
 		printf(
 			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_btw]" id="dealer_btw" value="%s" placeholder="dealer_btw">',
 			isset( $this->dds_settings_options['dealer_btw'] ) ? esc_attr( $this->dds_settings_options['dealer_btw']) : ''
+		);
+	}
+
+	public function dealer_bank_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[dealer_bank]" id="dealer_bank" value="%s" placeholder="dealer_bank">',
+			isset( $this->dds_settings_options['dealer_bank'] ) ? esc_attr( $this->dds_settings_options['dealer_bank']) : ''
 		);
 	}
 

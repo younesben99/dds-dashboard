@@ -3,6 +3,14 @@
   $(document).ready(function(){
 
 
+    $(".pop_close").on("click",function(e){
+      e.preventDefault();
+
+      $(this).closest(".dds_popup_wrap").fadeOut();
+
+  });
+
+
     var carid = jQuery(".uitlichten").attr("data-car-id");
 
     $(".uitlichten").on("click",function(){

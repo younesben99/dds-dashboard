@@ -324,7 +324,7 @@ div#wpwrap {
   @media only screen and (max-width: 800px) {
     
   
-.aankoopborderel_popup_wrap{
+.dds_popup_wrap{
   overflow-y: scroll;
 }
     #wpbody {
@@ -477,7 +477,7 @@ div#dds-grid {
 }
 
 @media screen and (max-width: 782px){
-  .aankoopborderel_popup {
+  .dds_popup {
     position: absolute;
     top: 7%;
 }
@@ -936,13 +936,13 @@ height: 42px !important
 .trumbowyg-button-pane {
   z-index: 0 !important;
 }
-.aankoopborderel_popup {
+.dds_popup {
   max-height: 70vh;
   overflow: scroll;
 }
 
 
-.aankoopborderel_popup_wrap{
+.dds_popup_wrap{
   position: fixed;
   left: 0;
   top: 0;
@@ -972,7 +972,7 @@ height: 42px !important
 
   text-decoration: underline;
 }
-.aankoopborderel_popup{
+.dds_popup{
     display: block;
     width: 50%;
     background: white;
@@ -982,7 +982,7 @@ height: 42px !important
     max-width: 450px;
 }
 
-.aankoopborderel_popup .pdfbtn{
+.dds_popup .pdfbtn{
   color: white;
   width: 100%;
   font-size: 16px;
@@ -1012,10 +1012,18 @@ height: 42px !important
   text-align: center;
   float: right;
 }
-.aankoopborderel_popup .pdfbtn:hover{
+#bestelbon_pop_close{
+  font-size: 20px;
+  margin-top: -22px;
+  cursor: pointer;
+  width: 25px;
+  text-align: center;
+  float: right;
+}
+.dds_popup .pdfbtn:hover{
   background: #1085af;
 }
-.aankoopborderel_popup input[type=text] {
+.dds_popup input[type=text] {
   margin-bottom: 5px;
   width: 100%;
   padding: 3px 10px;
