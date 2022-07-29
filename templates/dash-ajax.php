@@ -28,18 +28,21 @@ if(isset($_POST['dashstatus'])){
     $postid = $_POST['postid'];
     update_post_meta($postid, '_car_sync_key', 'NO');
     update_post_meta($postid, '_car_post_status_key', 'archief');
+    wp_update_post(array( 'ID' => $postid, 'post_status' => "publish" ));
     echo($postid . " is aangepast");
   }
   if($_POST['dashstatus'] == "nglive"){
     $postid = $_POST['postid'];
     update_post_meta($postid, '_car_sync_key', 'NO');
     update_post_meta($postid, '_car_post_status_key', 'actief');
+    wp_update_post(array( 'ID' => $postid, 'post_status' => "publish" ));
     echo($postid . " is aangepast");
   }
   if($_POST['dashstatus'] == "live"){
     $postid = $_POST['postid'];
     update_post_meta($postid, '_car_sync_key', 'YES');
     update_post_meta($postid, '_car_post_status_key', 'actief');
+    wp_update_post(array( 'ID' => $postid, 'post_status' => "publish" ));
     echo($postid . " is aangepast");
   }
   if($_POST['dashstatus'] == "concept"){

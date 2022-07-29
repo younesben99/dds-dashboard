@@ -36,9 +36,12 @@ if(is_user_logged_in()){
 
       <a href="<?php echo get_home_url();?>/dashboard/" class="archieflink dsactive" style="margin-top:40px;"><i class="icon-grid" style="font-size:20px;" ></i> <span style="margin-left:10px;">Inventaris</span></a>
       <a href="<?php echo get_home_url();?>/dashboard/archief/" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
-      <a href="<?php echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-eye" style="font-size:20px;" ></i> <span style="margin-left:10px;">Website bekijken</span></a>
+      <!-- <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-social-google" style="font-size:20px;" ></i> <span style="margin-left:10px;">Advertenties</span></a>
+      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-people" style="font-size:20px;" ></i> <span style="margin-left:10px;">Klanten</span></a>
+      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-calendar" style="font-size:20px;" ></i> <span style="margin-left:10px;">Afspraken</span></a>
+      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-bell" style="font-size:20px;" ></i> <span style="margin-left:10px;">Abonnementen</span></a>
       
-
+      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-list" style="font-size:20px;" ></i> <span style="margin-left:10px;">Banden stock</span></a> -->
       <div class="menuitems">
   
         <span class="filterlabel">Filteren</span>
