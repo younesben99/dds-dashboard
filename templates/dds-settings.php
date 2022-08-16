@@ -262,6 +262,20 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		add_settings_field(
+			'archive_margin', // id
+			'Archive page margin', // title
+			array( $this, 'archive_margin' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+		add_settings_field(
+			'sp_margin', // id
+			'Single car page margin', // title
+			array( $this, 'sp_margin' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 
 	}
 
@@ -370,6 +384,12 @@ class DDSSettings {
 		}
 		if ( isset( $input['dealer_bank'] ) ) {
 			$sanitary_values['dealer_bank'] = $input['dealer_bank'];
+		}
+		if ( isset( $input['archive_margin'] ) ) {
+			$sanitary_values['archive_margin'] = $input['archive_margin'];
+		}
+		if ( isset( $input['sp_margin'] ) ) {
+			$sanitary_values['sp_margin'] = $input['sp_margin'];
 		}
 
 		return $sanitary_values;
@@ -565,6 +585,20 @@ class DDSSettings {
 		printf(
 			'<input type="text" name="dds_settings_option_name[inmotiv_allow]" id="inmotiv_allow" value="%s" placeholder="">',
 			isset( $this->dds_settings_options['inmotiv_allow'] ) ? esc_attr( $this->dds_settings_options['inmotiv_allow']) : ''
+		);
+	}
+	
+	public function sp_margin() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[sp_margin]" id="sp_margin" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['sp_margin'] ) ? esc_attr( $this->dds_settings_options['sp_margin']) : ''
+		);
+	}
+
+	public function archive_margin() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[archive_margin]" id="archive_margin" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['archive_margin'] ) ? esc_attr( $this->dds_settings_options['archive_margin']) : ''
 		);
 	}
 

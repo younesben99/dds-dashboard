@@ -23,12 +23,17 @@ function display_admin_card($post){
 
 
     $uitgelichte_opt = get_option("uitgelichtewagens");
-
+    
     if(is_array($uitgelichte_opt)){
       if(in_array($post->ID,$uitgelichte_opt)){
         $uw_icon = "fa fa-star";
       }
       else{
+        $uw_icon = "fa fa-star-o";
+      }
+    }
+    else{
+      if(empty($uitgelichte_opt)){
         $uw_icon = "fa fa-star-o";
       }
     }
