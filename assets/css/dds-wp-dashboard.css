@@ -40,20 +40,24 @@ input#title,.wpseo-metabox {
     color: #ffffff;
 }
 
-/* #poststuff #post-body.columns-2 #side-sortables {
-    width: unset;
+.admin_btn{
+  width: 100%;
+  min-width: 150px;
+  text-align: center;
+  background: #f3f5f6;
+  color: #636363;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  font-size: 14px;
+  border: 1px solid #cecece;
+  cursor: pointer;
+  padding: 0 25px;
+  max-width: 250px;
+  width: 45%;
 }
-#post-body.columns-2 #side-sortables {
-    min-height: unset;
-}
-#post-body.columns-2 #postbox-container-1 {
-    float: unset;
-    margin-right: unset;
-    width: unset;
-}
-#poststuff #post-body.columns-2 {
-    margin-right: auto;
-} */
 .metabox-holder .postbox-container .meta-box-sortables {
  
   position: sticky;
