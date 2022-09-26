@@ -88,9 +88,9 @@ class DDSSettings {
 		);
 
 		add_settings_field(
-			'zapier_extra_key_1_5', // id
-			'Zapier Extra key 1', // title
-			array( $this, 'zapier_extra_key_1_5_callback' ), // callback
+			'zapier_billit_key', // id
+			'Zapier Billit Link', // title
+			array( $this, 'zapier_billit_key_callback' ), // callback
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
@@ -306,8 +306,8 @@ class DDSSettings {
 			$sanitary_values['zapier_twitter_key_4'] = sanitize_text_field( $input['zapier_twitter_key_4'] );
 		}
 
-		if ( isset( $input['zapier_extra_key_1_5'] ) ) {
-			$sanitary_values['zapier_extra_key_1_5'] = sanitize_text_field( $input['zapier_extra_key_1_5'] );
+		if ( isset( $input['zapier_billit_key'] ) ) {
+			$sanitary_values['zapier_billit_key'] = sanitize_text_field( $input['zapier_billit_key'] );
 		}
 
 		if ( isset( $input['zapier_extra_key_2_6'] ) ) {
@@ -434,10 +434,10 @@ class DDSSettings {
 		);
 	}
 
-	public function zapier_extra_key_1_5_callback() {
+	public function zapier_billit_key_callback() {
 		printf(
-			'<input class="regular-text" type="text" name="dds_settings_option_name[zapier_extra_key_1_5]" id="zapier_extra_key_1_5" value="%s">',
-			isset( $this->dds_settings_options['zapier_extra_key_1_5'] ) ? esc_attr( $this->dds_settings_options['zapier_extra_key_1_5']) : ''
+			'<input class="regular-text" type="text" name="dds_settings_option_name[zapier_billit_key]" id="zapier_billit_key" value="%s">',
+			isset( $this->dds_settings_options['zapier_billit_key'] ) ? esc_attr( $this->dds_settings_options['zapier_billit_key']) : ''
 		);
 	}
 
@@ -616,7 +616,7 @@ if ( is_admin() ){
  * $zapier_facebook_key_2 = $dds_settings_options['zapier_facebook_key_2']; // Zapier Facebook Key
  * $zapier_instagram_key_3 = $dds_settings_options['zapier_instagram_key_3']; // Zapier Instagram Key
  * $zapier_twitter_key_4 = $dds_settings_options['zapier_twitter_key_4']; // Zapier Twitter Key
- * $zapier_extra_key_1_5 = $dds_settings_options['zapier_extra_key_1_5']; // Zapier Extra key 1
+ * $zapier_billit_key = $dds_settings_options['zapier_billit_key']; // Zapier Extra key 1
  * $zapier_extra_key_2_6 = $dds_settings_options['zapier_extra_key_2_6']; // Zapier Extra key 2
  * $zapier_extra_key_2_7 = $dds_settings_options['zapier_extra_key_2_7']; // Zapier Extra key 2
  * $dealer_handelsnaam_8 = $dds_settings_options['dealer_handelsnaam_8']; // Dealer handelsnaam
