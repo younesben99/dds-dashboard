@@ -15,13 +15,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css" integrity="sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
-
-
-  <script type="text/javascript" src="/wp-content/plugins/dds-dashboard/assets/js/accordion.min.js"></script>
 
 
   <style>
@@ -41,14 +38,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" type="text/css" />
 
-  <!-- tippy -->
-  <script src="https://unpkg.com/@popperjs/core@2"></script>
-  <script src="https://unpkg.com/tippy.js@6"></script>
+
+  <script type="text/javascript" src="/wp-content/plugins/dds-dashboard/assets/js/accordion.min.js"></script>
+
+
   
 
   <link href="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/css/dashboard-style.css?v=<?php echo(uniqid()); ?>" rel="stylesheet">
-
-  <link href="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/css/accordion.css" rel="stylesheet">
   <script src="<?php echo(get_site_url()); ?>/wp-content/plugins/dds-dashboard/assets/js/dds-edit.js?v=<?php echo(uniqid()); ?>"></script>
   <script src="<?php echo(get_site_url()); ?>/wp-content/plugins/dds-dashboard/assets/js/dds-edit-dropzone.js?v=<?php echo(uniqid()); ?>"></script>
   <script src="<?php echo(get_site_url()); ?>/wp-content/plugins/dds-dashboard/assets/js/dds-update.js?v=<?php echo(uniqid()); ?>"></script>
@@ -69,7 +65,7 @@
 
 
 
-  <title>Dashboard</title>
+  <title>Archive</title>
 
 </head>
 

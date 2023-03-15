@@ -34,7 +34,7 @@
     font-size: 16px;
   }
 
-  .menuitems {
+  .dashboard_sidebar_filter {
     padding-top: 25px;
     border-top: 1px solid #efefef;    padding-left: 25px;
     margin-top: 25px;
@@ -84,6 +84,10 @@ if(is_array($uitgelichte_opt)){
 
 ?>
 <a class="uitlichten archieflink<?php echo $uitgelichtelink_class; ?>" data-car-id="<?php echo($post->ID); ?>"><i class="fa fa-star" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitlichten</span></a>
+
+
+
+
 
 
 </div>

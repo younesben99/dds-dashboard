@@ -62,7 +62,13 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
-
+		add_settings_field(
+			'inmotiv_key', // id
+			'inMotiv API key', // title
+			array( $this, 'inmotiv_key_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 		add_settings_field(
 			'zapier_facebook_key_2', // id
 			'Zapier Facebook Key', // title
@@ -262,6 +268,22 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		
+		add_settings_field(
+			'bb_checked', // id
+			'Bestelbon actief?', // title
+			array( $this, 'bb_checked_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+
+		add_settings_field(
+			'ab_checked', // id
+			'Aankoopborderel actief?', // title
+			array( $this, 'ab_checked_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 		add_settings_field(
 			'archive_margin', // id
 			'Archive page margin', // title
@@ -276,7 +298,13 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
-
+		add_settings_field(
+			'coming_soon_img', // id
+			'Coming soon image', // title
+			array( $this, 'coming_soon_img' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
 	}
 
 	public function dds_settings_sanitize($input) {
@@ -285,7 +313,15 @@ class DDSSettings {
 		if ( isset( $input['inmotiv_allow'] ) ) {
 			$sanitary_values['inmotiv_allow'] = sanitize_text_field( $input['inmotiv_allow'] );
 		}
-
+		if ( isset( $input['inmotiv_key'] ) ) {
+			$sanitary_values['inmotiv_key'] = sanitize_text_field( $input['inmotiv_key'] );
+		}
+		if ( isset( $input['bb_checked'] ) ) {
+			$sanitary_values['bb_checked'] = sanitize_text_field( $input['bb_checked'] );
+		}
+		if ( isset( $input['ab_checked'] ) ) {
+			$sanitary_values['ab_checked'] = sanitize_text_field( $input['ab_checked'] );
+		}
 		if ( isset( $input['autoscout_graphql_api_key_0'] ) ) {
 			$sanitary_values['autoscout_graphql_api_key_0'] = sanitize_text_field( $input['autoscout_graphql_api_key_0'] );
 		}
@@ -391,7 +427,9 @@ class DDSSettings {
 		if ( isset( $input['sp_margin'] ) ) {
 			$sanitary_values['sp_margin'] = $input['sp_margin'];
 		}
-
+		if ( isset( $input['coming_soon_img'] ) ) {
+			$sanitary_values['coming_soon_img'] = $input['coming_soon_img'];
+		}
 		return $sanitary_values;
 	}
 
@@ -587,7 +625,24 @@ class DDSSettings {
 			isset( $this->dds_settings_options['inmotiv_allow'] ) ? esc_attr( $this->dds_settings_options['inmotiv_allow']) : ''
 		);
 	}
-	
+	public function inmotiv_key_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[inmotiv_key]" id="inmotiv_key" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['inmotiv_key'] ) ? esc_attr( $this->dds_settings_options['inmotiv_key']) : ''
+		);
+	}
+	public function bb_checked_callback() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[bb_checked]" id="bb_checked" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['bb_checked'] ) ? esc_attr( $this->dds_settings_options['bb_checked']) : ''
+		);
+	}
+	public function ab_checked_callback() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[ab_checked]" id="ab_checked" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['ab_checked'] ) ? esc_attr( $this->dds_settings_options['ab_checked']) : ''
+		);
+	}
 	public function sp_margin() {
 		printf(
 			'<input type="text" name="dds_settings_option_name[sp_margin]" id="sp_margin" value="%s" placeholder="">',
@@ -601,7 +656,13 @@ class DDSSettings {
 			isset( $this->dds_settings_options['archive_margin'] ) ? esc_attr( $this->dds_settings_options['archive_margin']) : ''
 		);
 	}
-
+	
+	public function coming_soon_img() {
+		printf(
+			'<input type="text" name="dds_settings_option_name[coming_soon_img]" id="coming_soon_img" value="%s" placeholder="">',
+			isset( $this->dds_settings_options['coming_soon_img'] ) ? esc_attr( $this->dds_settings_options['coming_soon_img']) : ''
+		);
+	}
 
 }
 if ( is_admin() ){
@@ -624,5 +685,7 @@ if ( is_admin() ){
  * $dealer_tel_1_10 = $dds_settings_options['dealer_tel_1_10']; // Dealer Tel 1
  * $dealer_tel_2_11 = $dds_settings_options['dealer_tel_2_11']; // Dealer Tel 2
  * $dealer_tel_3_12 = $dds_settings_options['dealer_tel_3_12']; // Dealer Tel 3
- */
+ * INMOTIV API KEY 46e5e34b-62aa-4b05-a9c7-35d256ab8c41
+ * 
+ * /
 ?>

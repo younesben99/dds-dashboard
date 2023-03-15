@@ -14,7 +14,7 @@
           $('.navwrapper').fadeOut();
         }
       });
-      $(".topnavtoggle").on("click",function(){
+      $(".topnavtoggle img").on("click",function(){
         
     if ($('.navwrapper').is(":visible") ) {
      
@@ -211,6 +211,7 @@
     },
     function(data){
       console.log(data);
+      data = data.trim();
       if(data == "toegevoegd"){
        
         $(uitgelicht).find("i").removeClass();

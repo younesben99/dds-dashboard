@@ -1,4 +1,15 @@
+<?php
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
 
+    exit();
+}
+if(!is_user_logged_in()){
+$url = get_site_url() . "/wp-login.php";
+Redirect($url);
+}
+?>
 <?php
 
 include(__DIR__."/dashboard-header.php");
@@ -6,86 +17,75 @@ include(__DIR__."/dashboard-header.php");
 ?>
   <div class="bodywrap">
 
-    <div class="navwrapper">
 
-      <div>
-        <img class="dslogo" src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/logo.svg" />
-        <div class="topnavtoggle toggleinmenu"><img src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/menu.svg" style="width: 25px;" /></div>
-      </div>
+ 
+      <?php
 
-      <a href="<?php echo get_home_url();?>/dashboard/" class="archieflink dsactive" style="margin-top:40px;"><i class="icon-grid" style="font-size:20px;" ></i> <span style="margin-left:10px;">Inventaris</span></a>
-      <a href="<?php echo get_home_url();?>/dashboard/archief/" class="archieflink"><i class="icon-drawer" style="font-size:20px;" ></i> <span style="margin-left:10px;">Archief</span></a>
-      <!-- <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-social-google" style="font-size:20px;" ></i> <span style="margin-left:10px;">Advertenties</span></a>
-      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-people" style="font-size:20px;" ></i> <span style="margin-left:10px;">Klanten</span></a>
-      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-calendar" style="font-size:20px;" ></i> <span style="margin-left:10px;">Afspraken</span></a>
-      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-bell" style="font-size:20px;" ></i> <span style="margin-left:10px;">Abonnementen</span></a>
-      
-      <a href="<?php //echo get_home_url();?>/" class="archieflink" target="_blank"><i class="icon-list" style="font-size:20px;" ></i> <span style="margin-left:10px;">Banden stock</span></a> -->
-      <div class="menuitems">
-  
-        <span class="filterlabel">Filteren</span>
-
-        <div class="menuitemwrap">
-        <div class='showallcars'>Bekijk alle wagens</div>
-        <?php 
-        
-        $dsposts = get_posts(array(
-          'post_type' => 'autos',
-          'numberposts' => -1,
-          'post_status' => 'any'
-          
-        ));
-        $merkenlijst = array();
-        $counter = 0;
-        foreach($dsposts as $dspost){
-
-          $status = get_post_meta( $dspost->ID, '_car_post_status_key', true );
-
-          if($status == "actief" || $status == "concept"  ){
-            $counter++;
-            $term = get_the_terms($dspost, "merkenmodel");
-            if (is_array($term) || is_object($term))
-            {
-              foreach( $term as $termitem){
-                if($termitem->parent == 0){
-                  if (!in_array($termitem->term_id, $merkenlijst))
-                  {
-                    array_push($merkenlijst,$termitem->term_id);
-                  }
-                  
-              }
-            }
-            }
-            
-            
-          
-        }
-      }
-        foreach($merkenlijst as $termid){
-          
-          $termitem = get_term_by("ID", $termid,"merkenmodel");
-        
-          echo "<div class='merkitem' data-id='".$termitem->term_id."' data-slug='".$termitem->slug."'>".$termitem->name."</div>";
-        }
-       
-       //new list
-       
-        ?>
-         
-        </div>
-
-
-      </div>
-    </div>
-
+dashboard_sidebar("Dashboard",["inventaris","filter"]);
+      ?>
    
     <div class="contentwrap">
       <div class="topnav">
       <div class="topnavtoggle"><img src="<?php echo get_home_url();?>/wp-content/plugins/dds-dashboard/assets/img/menu.svg" style="width: 25px;" /></div>
       <a class="archieflink loguitlink" id="loguit" target="_blank"><i class="icon-logout" style="font-size:20px;" ></i> <span style="margin-left:10px;">Uitloggen</span></a></div>
-      <div style="padding:2%;" class="innercontent">
-      <h1 class="dashhead">Inventaris (<?php echo $counter;?>)</h1>
-      <a href="<?php echo get_home_url();?>/wp-admin/post-new.php?post_type=autos" class="additem"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></a>
+      <div style="padding:2%;">
+      <h1 class="dashhead">Inventaris (<span class="dash_counter"><?php
+
+
+  $count = 0;
+  $allposts = get_posts( array('post_type'=>'autos','numberposts'=>-1, 'post_status' => 'any') );
+    foreach ($allposts as $post) {
+      $status = get_post_meta( $post->ID, '_car_post_status_key', true );
+      if($status == "actief" || $status == "concept" ){
+       $count++;
+      }
+    }
+
+
+echo($count);
+?></span>)</h1>
+      <button class="additem pop_open" data-popup="auto_toevoegen"><i class="icon-plus" style="font-size:20px;" ></i> <span style="margin-left:10px;">Auto toevoegen</span></button>
+     <?php
+
+popup_backend_open("auto_toevoegen");
+
+?>
+
+<div class="auto_toevoegen_wrap" style="width: 100%;">
+
+<h3 style="margin-bottom: 10px;
+    margin-top: 25px;">Auto toevoegen aan inventaris</h3>
+<p style="margin-bottom: 25px;
+    font-size: 12Px;
+    color: #80969e;">Vul hier het chassis nummer in en haal de gegevens op van de auto.</p>
+<label for="chassisnr">Chassis Nummer</label>
+<input type="text" id="new_chassisnr" maxlength="17" />
+<input type="hidden" id="inmotiv_apikey" value="<?
+
+$dds_settings_options = get_option( 'dds_settings_option_name' ); 
+$inmotiv_key = $dds_settings_options['inmotiv_key']; 
+echo $inmotiv_key; ?>"/>
+<div style="display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;">
+
+<button id="create_car_inmotiv" class="btn_dialog" style="font-size: 17px;background:#20aee3;color:white;"><img src="<?php echo(get_site_url()); ?>/wp-content/plugins/carsync/assets/img/pdf-down-white.svg" width="30" style="padding-right:20px;"> Gegevens ophalen </button>
+
+
+<button id="create_car_basic" class="btn_dialog" style="background-color: #f7f7f7;
+    border: 2px solid #dcecf2;
+    color: #3c5660;">Overslaan</button>
+    
+</div>
+</div>
+
+<?php
+popup_backend_close();
+
+     ?>
       <div id="dds-grid"></div>
       </div>
     </div>

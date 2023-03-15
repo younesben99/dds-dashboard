@@ -4,7 +4,7 @@
 Plugin Name: DDS Dashboard
 Plugin URI: https://github.com/younesben99/dds-dashboard
 Description: Digiflow Dealership Solutions | Dashboard for managing your digital dealership
-Version: 3.8.2
+Version: 4.1
 Author: Younes Benkheil
 Author URI: https://digiflow.be/
 License: GPL2
@@ -17,12 +17,16 @@ GitHub Plugin URI: https://github.com/younesben99/dds-dashboard
 remove_action( 'template_redirect', 'wp_redirect_admin_locations', 1000 );
 //require_once( __DIR__ . '/register/dashboard_template_file.php');
 require_once( __DIR__ . '/templates/dash-ajax.php');
+require_once( __DIR__ . '/templates/backend-popup.php');
 require_once( __DIR__ . '/templates/dashboard-cards.php');
  require_once( __DIR__ . '/templates/dds-login.php');
  require_once( __DIR__ . '/templates/dds-settings.php');
 //require_once( __DIR__ . '/register/create-dashboard.php');
 
 require_once( __DIR__ . '/register/generate_dashboard.php');
+require_once(__DIR__."/templates/navwrapper.php");
+include(__DIR__."/templates/dds-edit-gallery.php");
+include(__DIR__."/templates/dds-edit-options.php");
 
 function add_admin_style_scripts( $hook ) {
 
@@ -39,6 +43,7 @@ function add_admin_style_scripts( $hook ) {
         }
        
     }
+   
 }
 add_action( 'admin_enqueue_scripts', 'add_admin_style_scripts', 10, 1 );
 
@@ -56,10 +61,10 @@ function dashboard_page_template( $page_template )
     }
     if ( is_page( 'edit' ) ) {
         $page_template = dirname( __FILE__ ) . '/templates/dashboard-edit.php';
+     
     }
     return $page_template;
 }
-
 
 
 

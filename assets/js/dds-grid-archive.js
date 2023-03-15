@@ -2,6 +2,7 @@
 
     $(document).ready(function(){
 
+      console.log("hey");
 
       $( "#dds-grid" ).on( "click", ".trash_car", function( event ) {
       
@@ -40,7 +41,7 @@
           $('.navwrapper').fadeOut();
         }
       });
-      $(".topnavtoggle").on("click",function(){
+      $(".topnavtoggle img").on("click",function(){
         
     if ($('.navwrapper').is(":visible") ) {
      
