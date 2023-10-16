@@ -4,7 +4,7 @@
 Plugin Name: DDS Dashboard
 Plugin URI: https://github.com/younesben99/dds-dashboard
 Description: Digiflow Dealership Solutions | Dashboard for managing your digital dealership
-Version: 4.1.1
+Version: 4.1.2
 Author: Younes Benkheil
 Author URI: https://digiflow.be/
 License: GPL2
@@ -27,6 +27,7 @@ require_once( __DIR__ . '/register/generate_dashboard.php');
 require_once(__DIR__."/templates/navwrapper.php");
 include(__DIR__."/templates/dds-edit-gallery.php");
 include(__DIR__."/templates/dds-edit-options.php");
+include(__DIR__."/templates/dds-frontend-edit-options.php");
 
 function add_admin_style_scripts( $hook ) {
 

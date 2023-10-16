@@ -43,7 +43,7 @@ else{
 $offerte_aangemaakt = get_post_meta( $id, '_offerte_aangemaakt', true );
 $offerte_url = get_post_meta( $id, '_offerte_url', true );
 
-if($offerte_aangemaakt == "YES"){
+if(!empty($offerte_url)){
     $offerte_aangemaakt = "YES";
     ?>
 <button class="edit_btn offerteopenen" id="offerteopenen" data-site-url="<?php echo(get_site_url()); ?>" data-post-id="<?php echo($id); ?>"><img src="<?php echo(get_site_url()); ?>/wp-content/plugins/carsync/assets/img/pdf-show.svg" width="30" style="padding-right:20px;"  /> Offerte Openen</button>
