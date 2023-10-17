@@ -4,7 +4,7 @@
 Plugin Name: DDS Dashboard
 Plugin URI: https://github.com/younesben99/dds-dashboard
 Description: Digiflow Dealership Solutions | Dashboard for managing your digital dealership
-Version: 4.1.6
+Version: 4.1.7
 Author: Younes Benkheil
 Author URI: https://digiflow.be/
 License: GPL2
@@ -110,8 +110,8 @@ function billit_offerte_check() {
             $wagentitel = get_post_meta($ID, '_car_wagentitel_key', true);
             $prijs = get_post_meta($ID, '_car_prijs_key', true);
             $offerte_aangemaakt = get_post_meta($ID, '_offerte_aangemaakt', true);
-
-            if (!empty($wagentitel) && !empty($prijs) && $offerte_aangemaakt !== 'YES') {
+            $car_status = get_post_meta($ID, '_car_status_key', true);
+            if (!empty($wagentitel) && !empty($prijs) && $offerte_aangemaakt !== 'YES' && $car_status !== "verkocht") {
                  //error reporting fallback moet hier NOG inkomen
                     $car_fields = get_post_meta($ID);
                     $zapier_offerte = wp_zapier_billit($car_fields,true);
