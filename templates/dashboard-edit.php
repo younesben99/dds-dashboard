@@ -1,4 +1,3 @@
-
 <?php
 $id = $_GET["id"];
 if(!isset($id) || empty($id) || FALSE === get_post_status( $id )){
@@ -6,13 +5,9 @@ if(!isset($id) || empty($id) || FALSE === get_post_status( $id )){
   header("Location: ".$url);
 }
 include(__DIR__."/dashboard-header.php");
-
 ?>
-  <div class="bodywrap">
-
-
- 
-      <?php
+<div class="bodywrap">
+<?php
 
 dashboard_sidebar("Edit",["inventaris","edit","bekijken","uitlichten"]);
 
