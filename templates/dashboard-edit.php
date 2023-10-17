@@ -1,12 +1,10 @@
 
 <?php
- $id = $_GET["id"];
-
- if(!isset($id) || empty($id) || FALSE === get_post_status( $id )){
-     $url = get_home_url() . "/dashboard/";
-     header("Location: ".$url);
- }
-
+$id = $_GET["id"];
+if(!isset($id) || empty($id) || FALSE === get_post_status( $id )){
+  $url = get_home_url() . "/dashboard/";
+  header("Location: ".$url);
+}
 include(__DIR__."/dashboard-header.php");
 
 ?>
