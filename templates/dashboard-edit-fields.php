@@ -154,6 +154,7 @@ $bb_checked = $dds_settings_options['bb_checked'];
 $ab_checked = $dds_settings_options['ab_checked']; 
 $facebook_key = $dds_settings_options['zapier_facebook_key_2']; 
 $instagram_key = $dds_settings_options['zapier_instagram_key_3']; 
+$billit_key = $dds_settings_options['zapier_billit_key']; 
 ?>
 
 
