@@ -95,22 +95,27 @@ jQuery(document).ready(function($){
 
     });
 
-
     $(document).on("click", ".dz-remove-local", function(e) {
         e.preventDefault();
-    
+        $(this).html('<img src="/wp-content/plugins/dds-dashboard/assets/img/loading-remove.gif" height="15px" width="15px" />');
         var imgid = $(this).attr("data-img-id");
-        var postid = postid;
-    
+        var $this = $(this); // Cache the reference to $(this)
+      
         $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php", {
-            dds_remove_dropzone_img: imgid,
-            postid: postid
+          dds_remove_dropzone_img: imgid,
+          postid: postid // Make sure postid is defined in the outer scope
         }, function(data) {
-            console.log(data);
+          console.log(data);
+          
+          var preview = $this.parents(".dz-preview");
+            preview.fadeOut(function() {
+            preview.remove();
+            });
+
         });
+      });
+      
     
-        $(this).parents(".dz-preview").remove();
-    });
     
 
 

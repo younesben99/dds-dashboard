@@ -261,22 +261,37 @@ if (isset($_POST['dds_edit_dropzone']) && is_numeric($_POST['dds_edit_dropzone']
   }
 }
 
-if (isset($_POST['dds_remove_dropzone_img'], $_POST['postid']) && is_numeric($_POST['dds_remove_dropzone_img']) && is_numeric($_POST['postid'])) {
 
-  $imgid = intval($_POST['dds_remove_dropzone_img']);
-  $id = intval($_POST['postid']);
 
-  $gallery_ids = get_post_meta($id, 'vdw_gallery_id', true);
+// Check if the necessary POST variables are set
+if (isset($_POST['dds_remove_dropzone_img'], $_POST['postid'])) {
+  $imgid = $_POST['dds_remove_dropzone_img'];
+  $postid = $_POST['postid'];
+  // Get the serialized meta key
+$vdw_gallery_id = get_post_meta($postid, 'vdw_gallery_id', true);
 
-  if (is_array($gallery_ids) && ($key = array_search($imgid, $gallery_ids)) !== false) {
-      unset($gallery_ids[$key]);
-      // Re-index the array to avoid serialization issues in update_post_meta
-      $gallery_ids = array_values($gallery_ids);
-      update_post_meta($id, 'vdw_gallery_id', $gallery_ids);
-  }
+// Check if $vdw_gallery_id is an array before using foreach
+if (is_array($vdw_gallery_id)) {
+    // Check if $imgid is in the array and remove it
+    if (($key = array_search($imgid, $vdw_gallery_id)) !== false) {
+        unset($vdw_gallery_id[$key]);
 
-  wp_delete_attachment($imgid, true);
+        // Update the meta key with the modified array
+        update_post_meta($postid, 'vdw_gallery_id', $vdw_gallery_id);
+
+        // Success response
+        echo 'Image ID removed successfully';
+    } else {
+        // Image ID not found in the array
+        echo 'Error: Image ID not found in the meta key';
+    }
+} else {
+    // $vdw_gallery_id is not an array, handle this situation accordingly
+    echo 'Error: Meta key is not an array';
 }
+
+} 
+
 
 
 

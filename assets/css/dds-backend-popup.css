@@ -205,7 +205,11 @@ button.pop_close {
   
     width: 47%;
 }
-
+.dz-remove-local img {
+    height: 18px !important;
+    width: 18px !important;
+    object-fit: contain;
+  }
 @media only screen and (max-height: 1100px){
     .dds_pop_wrap {
     overflow-y: auto;
