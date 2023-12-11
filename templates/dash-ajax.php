@@ -261,23 +261,21 @@ if (isset($_POST['dds_edit_dropzone']) && is_numeric($_POST['dds_edit_dropzone']
   }
 }
 
+if (isset($_POST['dds_remove_dropzone_img'], $_POST['postid']) && is_numeric($_POST['dds_remove_dropzone_img']) && is_numeric($_POST['postid'])) {
 
-if(isset($_POST['dds_remove_dropzone_img'])){
+  $imgid = intval($_POST['dds_remove_dropzone_img']);
+  $id = intval($_POST['postid']);
 
-    $imgid = $_POST['dds_remove_dropzone_img'];
-    $id = $_POST['postid'];
+  $gallery_ids = get_post_meta($id, 'vdw_gallery_id', true);
 
-    $gallery_ids = get_post_meta($id, 'vdw_gallery_id', true);
-
-    if(($key = array_search($imgid, $gallery_ids)) !== false) {
+  if (is_array($gallery_ids) && ($key = array_search($imgid, $gallery_ids)) !== false) {
       unset($gallery_ids[$key]);
-      
+      // Re-index the array to avoid serialization issues in update_post_meta
+      $gallery_ids = array_values($gallery_ids);
+      update_post_meta($id, 'vdw_gallery_id', $gallery_ids);
   }
 
-    update_post_meta($id,'vdw_gallery_id',$gallery_ids);
-
-    wp_delete_attachment( $imgid,true );
-
+  wp_delete_attachment($imgid, true);
 }
 
 
