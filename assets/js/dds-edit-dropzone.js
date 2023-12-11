@@ -96,25 +96,22 @@ jQuery(document).ready(function($){
     });
 
 
-    $(".dz-remove-local").on("click",function(e){
-
+    $(document).on("click", ".dz-remove-local", function(e) {
         e.preventDefault();
-       
+    
         var imgid = $(this).attr("data-img-id");
-        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
-        {
+        var postid = /* Ensure you have the postid value here */;
+    
+        $.post("/wp-content/plugins/dds-dashboard/templates/dash-ajax.php", {
             dds_remove_dropzone_img: imgid,
             postid: postid
-        },
-        function(data){
-          console.log(data);
-          
+        }, function(data) {
+            console.log(data);
         });
     
-        
         $(this).parents(".dz-preview").remove();
     });
-
+    
 
 
 
