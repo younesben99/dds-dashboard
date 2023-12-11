@@ -235,32 +235,32 @@ if(isset($_POST['push'])){
 
 //DROPZONE EDIT PAGE
 
+if (isset($_POST['dds_edit_dropzone']) && is_numeric($_POST['dds_edit_dropzone'])) {
 
-
-if(isset($_POST['dds_edit_dropzone'])){
-
-  require_once(ABSPATH .'wp-admin/includes/file.php'  );
-  require_once(ABSPATH .'wp-admin/includes/image.php' );
-  require_once(ABSPATH .'wp-admin/includes/media.php' );
+  require_once(ABSPATH . 'wp-admin/includes/file.php');
+  require_once(ABSPATH . 'wp-admin/includes/image.php');
+  require_once(ABSPATH . 'wp-admin/includes/media.php');
 
   if (!empty($_FILES['file']['name'])) {
 
+      $image = media_handle_upload('file', $_POST['dds_edit_dropzone']);
 
-    $image = media_handle_upload('file',$_POST['dds_edit_dropzone']);
+      if (is_wp_error($image)) {
+          // Handle the error.
+      } else {
+          $gallery_ids = get_post_meta($_POST['dds_edit_dropzone'], 'vdw_gallery_id', true);
 
-    $gallery_ids = get_post_meta($_POST['dds_edit_dropzone'], 'vdw_gallery_id', true);
+          if (!is_array($gallery_ids)) {
+              $gallery_ids = [];
+          }
 
-    if(!empty($gallery_ids)){
-      array_push($gallery_ids,$image);
-    }
-    else{
-      $gallery_ids = array($image);
-    }
- 
-    update_post_meta($_POST['dds_edit_dropzone'],'vdw_gallery_id',$gallery_ids);
-      
+          $gallery_ids[] = $image;
+
+          update_post_meta($_POST['dds_edit_dropzone'], 'vdw_gallery_id', $gallery_ids);
+      }
   }
 }
+
 
 if(isset($_POST['dds_remove_dropzone_img'])){
 
