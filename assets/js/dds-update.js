@@ -78,6 +78,18 @@ $(".car-model").on("change",function(){
 
 });
 
+$(".car-model-andere").on("change",function(){
+
+
+  var model =  $(this).val();
+  var merk = $(".car-merk").val();
+  console.log("merk: "+merk);
+  console.log("model: "+model);
+  dds_update_merk_model(post_id,merk,model);
+
+
+
+});
 
 $("#Beschrijving").on("tbwblur",function(){
     var value =  $(this).val();

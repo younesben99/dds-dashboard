@@ -62,9 +62,16 @@ popup_backend_open("auto_toevoegen");
 <input type="text" id="new_chassisnr" maxlength="17" />
 <input type="hidden" id="inmotiv_apikey" value="<?
 
-$dds_settings_options = get_option( 'dds_settings_option_name' ); 
-$inmotiv_key = $dds_settings_options['inmotiv_key']; 
-echo $inmotiv_key; ?>"/>
+$dds_settings_options = get_option('dds_settings_option_name');
+if (is_array($dds_settings_options)) {
+    $inmotiv_key = isset($dds_settings_options['inmotiv_key']) ? $dds_settings_options['inmotiv_key'] : '';
+} else {
+    $inmotiv_key = ''; // Set a default or handle the error as appropriate
+}
+echo $inmotiv_key;
+
+?>
+"/>
 <div style="display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

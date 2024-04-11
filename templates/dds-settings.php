@@ -133,7 +133,7 @@ class DDSSettings {
 			'dds_settings_setting_section' // section
 		);
 		add_settings_field(
-			'dealer_city_9', // id
+			'dealer_city_9', // idµ
 			'Dealer city', // title
 			array( $this, 'dealer_city_9_callback' ), // callback
 			'dds-settings-admin', // page
@@ -669,23 +669,22 @@ if ( is_admin() ){
     $dds_settings = new DDSSettings();
 }
 
-/* 
- * Retrieve this value with:
- * $dds_settings_options = get_option( 'dds_settings_option_name' ); // Array of All Options
- * $autoscout_graphql_api_key_0 = $dds_settings_options['autoscout_graphql_api_key_0']; // Autoscout GraphQL API key
- * $autoscout_customer_id_1 = $dds_settings_options['autoscout_customer_id_1']; // Autoscout Customer ID
- * $zapier_facebook_key_2 = $dds_settings_options['zapier_facebook_key_2']; // Zapier Facebook Key
- * $zapier_instagram_key_3 = $dds_settings_options['zapier_instagram_key_3']; // Zapier Instagram Key
- * $zapier_twitter_key_4 = $dds_settings_options['zapier_twitter_key_4']; // Zapier Twitter Key
- * $zapier_billit_key = $dds_settings_options['zapier_billit_key']; // Zapier Extra key 1
- * $zapier_extra_key_2_6 = $dds_settings_options['zapier_extra_key_2_6']; // Zapier Extra key 2
- * $zapier_extra_key_2_7 = $dds_settings_options['zapier_extra_key_2_7']; // Zapier Extra key 2
- * $dealer_handelsnaam_8 = $dds_settings_options['dealer_handelsnaam_8']; // Dealer handelsnaam
- * $dealer_adres_9 = $dds_settings_options['dealer_adres_9']; // Dealer Adres
- * $dealer_tel_1_10 = $dds_settings_options['dealer_tel_1_10']; // Dealer Tel 1
- * $dealer_tel_2_11 = $dds_settings_options['dealer_tel_2_11']; // Dealer Tel 2
- * $dealer_tel_3_12 = $dds_settings_options['dealer_tel_3_12']; // Dealer Tel 3
- * INMOTIV API KEY 46e5e34b-62aa-4b05-a9c7-35d256ab8c41
- * 
- * /
-?>
+
+//   Retrieve this value with:
+//   $dds_settings_options = get_option( 'dds_settings_option_name' ); // Array of All Options
+//   $autoscout_graphql_api_key_0 = $dds_settings_options['autoscout_graphql_api_key_0']; // Autoscout GraphQL API key
+//   $autoscout_customer_id_1 = $dds_settings_options['autoscout_customer_id_1']; // Autoscout Customer ID
+//   $zapier_facebook_key_2 = $dds_settings_options['zapier_facebook_key_2']; // Zapier Facebook Key
+//   $zapier_instagram_key_3 = $dds_settings_options['zapier_instagram_key_3']; // Zapier Instagram Key
+//   $zapier_twitter_key_4 = $dds_settings_options['zapier_twitter_key_4']; // Zapier Twitter Key
+//   $zapier_billit_key = $dds_settings_options['zapier_billit_key']; // Zapier Extra key 1
+//   $zapier_extra_key_2_6 = $dds_settings_options['zapier_extra_key_2_6']; // Zapier Extra key 2
+//   $zapier_extra_key_2_7 = $dds_settings_options['zapier_extra_key_2_7']; // Zapier Extra key 2
+//   $dealer_handelsnaam_8 = $dds_settings_options['dealer_handelsnaam_8']; // Dealer handelsnaam
+//   $dealer_adres_9 = $dds_settings_options['dealer_adres_9']; // Dealer Adres
+//   $dealer_tel_1_10 = $dds_settings_options['dealer_tel_1_10']; // Dealer Tel 1
+//   $dealer_tel_2_11 = $dds_settings_options['dealer_tel_2_11']; // Dealer Tel 2
+//   $dealer_tel_3_12 = $dds_settings_options['dealer_tel_3_12']; // Dealer Tel 3
+//   INMOTIV API KEY 46e5e34b-62aa-4b05-a9c7-35d256ab8c41
+
+ ?>

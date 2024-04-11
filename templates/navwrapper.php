@@ -1,7 +1,12 @@
 <?php
-function dashboard_sidebar($page = "Dashboard",$items = ["inventaris"]){
-$car_status = get_post_meta($_GET["id"],"_car_post_status_key",true);
-?>
+function dashboard_sidebar($page = "Dashboard", $items = ["inventaris"]) {
+  // Check if 'id' exists in the URL parameters and assign it to a variable
+  $car_id = isset($_GET["id"]) ? $_GET["id"] : null;
+
+  // Only proceed with getting post meta if $car_id is not null
+  $car_status = $car_id ? get_post_meta($car_id, "_car_post_status_key", true) : '';
+
+  ?>
 
 <div class="navwrapper">
 

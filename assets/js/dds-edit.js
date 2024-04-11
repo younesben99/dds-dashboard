@@ -2,12 +2,39 @@
 
     $(document).ready(function(){
 
+      function checkModelAvailability(brandSelector, modelSelector) {
+
+        var merkid = $(brandSelector).find('option:selected').attr("data-merkid");
+        var modelOptions = $(modelSelector).find('option').filter(function() {
+          return $(this).attr("data-merkid") === merkid;
+        });
+        
+        // Initially disable all models and reset selection
+        $(modelSelector).prop("disabled", true).val("select").trigger('change');
+        
+        if(modelOptions.length === 1 || modelOptions.length === 0) {
+          // If no models are available for the selected brand
+ 
+          $(".car-model-wrapper").hide();
+          $('.custom_model_wrapper').show(); // Show the custom model wrapper as fallback
+        } else {
+          // Enable model options that match the selected brand, enable the model selector, and hide the custom model wrapper
+          $(modelSelector).prop("disabled", false);
+          modelOptions.prop("disabled", false);
+          $('.custom_model_wrapper').hide(); // Assume this should be hidden if models are available
+          $(".car-model-wrapper").show();
+        }
+      }
+      
+      checkModelAvailability('.car-merk', '.car-model');
+
+
       $("#my-accordion").accordionjs();
 
       if($("#post_title").val() !== undefined){
         document.title = $("#post_title").val() + " Bewerken";
       }
-     
+      
 
         $("#Beschrijving").trumbowyg({
           btns: [
@@ -42,6 +69,10 @@
 
    
 
+        $('.car-model').on('select2:select', function (e) {
+          var data = e.params.data;
+          console.log(data.text); 
+        });
 
     if($("#inmotiv_apikey").val() == ""){
       $("#Gegevensophalen").prop("disabled","disabled");
@@ -93,6 +124,7 @@
     $( ".car-model > option" ).each(function( index ) {
       $( this ).prop("disabled",true);
     });
+    
     if(currentmodel.length == 0){
       merkid = $(".car-merk").find('option:selected').attr("data-merkid");
     
@@ -103,6 +135,7 @@
               $( this ).prop("disabled",false);
             }
       });
+      $( ".custom_model" ).prop("disabled",false);
     }
     else{
       merkid = $(".car-merk").find('option:selected').attr("data-merkid");
@@ -120,9 +153,11 @@
     
 
 
+    
     $(".car-merk").on("change",function(){
 
-     
+      checkModelAvailability('.car-merk', '.car-model');
+
 
 
       //hide alles

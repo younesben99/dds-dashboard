@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" type="text/css" />
 
 
-  <script type="text/javascript" src="/wp-content/plugins/dds-dashboard/assets/js/accordion.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_site_url();?>/wp-content/plugins/dds-dashboard/assets/js/accordion.min.js"></script>
 
 
   

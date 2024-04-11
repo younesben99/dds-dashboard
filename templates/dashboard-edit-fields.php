@@ -256,25 +256,36 @@ $billit_key = $dds_settings_options['zapier_billit_key'];
 
 
 
-<div class="edit_input_wrapper">
+<div class="edit_input_wrapper car-model-wrapper">
 
     <label>Model</label>
+   
+
     <select class="car-model" name='carmodel-input'>
     
-
+    
     <option selected class="selecteermodel">Selecteer Model</option>
   
     <?php
+
     foreach($modellen as $model){
+        
     if($model["model"] !== "model"){
         echo("<option class='modeloption' value='".$model["model"]."' data-merkid='".$model["merkid"]."' data-modelid='".$model["modelid"]."'>".$model["model"]."</option>");
 
     }
-    }
-    ?>
-    </select>
-</div>
 
+    }
+
+    ?>
+
+    </select>
+
+</div>
+<div class="edit_input_wrapper custom_model_wrapper" style="display:none;">
+<label>Model (Andere)</label>
+<input type="text" value="<?php echo $value_modelcf; ?>" class="car-model-andere" id="model" name="model">
+</div>
 
 
 
