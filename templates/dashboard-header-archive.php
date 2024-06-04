@@ -66,6 +66,7 @@
 
 
   <title>Archive</title>
+  <?php wp_head(); ?>
 
 </head>
 

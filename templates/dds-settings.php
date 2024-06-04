@@ -9,10 +9,8 @@ class DDSSettings {
 	}
 
 	public function dds_settings_add_plugin_page() {
-		
-        add_menu_page( 'Backoffice', 'Backoffice', 'manage_options', get_site_url() . "/dashboard/", null, 'dashicons-menu-alt', 1  );
+		add_menu_page( 'Backoffice', 'Backoffice', 'manage_options', get_site_url() . "/dashboard/", null, 'dashicons-menu-alt', 1  );
         add_submenu_page(get_site_url() . "/dashboard/","Instellingen","Instellingen","manage_options","dds-settings",array( $this, 'dds_settings_create_admin_page' ));
-        
 	}
     
 	public function dds_settings_create_admin_page() {
@@ -62,6 +60,15 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
+		add_settings_field(
+			'disable_vin', // id
+			'Disable VIN & Use Car ID (DEBUG)', // title
+			array( $this, 'disable_vin_callback' ), // callback
+			'dds-settings-admin', // page
+			'dds_settings_setting_section' // section
+		);
+
 		add_settings_field(
 			'inmotiv_key', // id
 			'inMotiv API key', // title
@@ -69,6 +76,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'zapier_facebook_key_2', // id
 			'Zapier Facebook Key', // title
@@ -132,13 +140,15 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		
 		add_settings_field(
-			'dealer_city_9', // idµ
+			'dealer_city_9', // id
 			'Dealer city', // title
 			array( $this, 'dealer_city_9_callback' ), // callback
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		
 		add_settings_field(
 			'dealer_tel_1_10', // id
 			'Dealer Tel 1', // title
@@ -170,6 +180,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'dealer_btw', // id
 			'Dealer BTW nr', // title
@@ -177,6 +188,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'dealer_bank', // id
 			'Dealer Bank gegevens', // title
@@ -184,6 +196,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'primary_color', // id
 			'Primary Color', // title
@@ -199,6 +212,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+		
 		add_settings_field(
 			'troeven_shortcode', // id
 			'Troeven shortcode', // title
@@ -206,6 +220,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'slideshow_type', // id
 			'Slideshow type', // title
@@ -213,6 +228,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'sp_locatie_link', // id
 			'Locatie link', // title
@@ -220,6 +236,7 @@ class DDSSettings {
 			'dds-settings-admin', // page
 			'dds_settings_setting_section' // section
 		);
+
 		add_settings_field(
 			'sp_contact_shortcode', // id
 			'SCP Contact shortcode <br><small style="font-size:8px;color:grey;font-weight:300;">[dds_form style="modern" name="scpbeschikbaarheid" type="beschikbaarheid"]
@@ -330,6 +347,10 @@ class DDSSettings {
 			$sanitary_values['autoscout_customer_id_1'] = sanitize_text_field( $input['autoscout_customer_id_1'] );
 		}
 
+		if ( isset( $input['disable_vin'] ) ) {
+			$sanitary_values['disable_vin'] = sanitize_text_field( $input['disable_vin'] );
+		}
+
 		if ( isset( $input['zapier_facebook_key_2'] ) ) {
 			$sanitary_values['zapier_facebook_key_2'] = sanitize_text_field( $input['zapier_facebook_key_2'] );
 		}
@@ -433,9 +454,7 @@ class DDSSettings {
 		return $sanitary_values;
 	}
 
-	public function dds_settings_section_info() {
-		
-	}
+	public function dds_settings_section_info() {}
 
 	public function autoscout_graphql_api_key_0_callback() {
 		printf(
@@ -448,6 +467,13 @@ class DDSSettings {
 		printf(
 			'<input class="regular-text" type="text" name="dds_settings_option_name[autoscout_customer_id_1]" id="autoscout_customer_id_1" value="%s">',
 			isset( $this->dds_settings_options['autoscout_customer_id_1'] ) ? esc_attr( $this->dds_settings_options['autoscout_customer_id_1']) : ''
+		);
+	}
+
+	public function disable_vin_callback() {
+		printf(
+			'<input class="regular-text" type="text" name="dds_settings_option_name[disable_vin]" id="disable_vin" value="%s">',
+			isset( $this->dds_settings_options['disable_vin'] ) ? esc_attr( $this->dds_settings_options['disable_vin']) : ''
 		);
 	}
 
@@ -674,6 +700,7 @@ if ( is_admin() ){
 //   $dds_settings_options = get_option( 'dds_settings_option_name' ); // Array of All Options
 //   $autoscout_graphql_api_key_0 = $dds_settings_options['autoscout_graphql_api_key_0']; // Autoscout GraphQL API key
 //   $autoscout_customer_id_1 = $dds_settings_options['autoscout_customer_id_1']; // Autoscout Customer ID
+//   $disable_vin = $dds_settings_options['disable_vin']; // Disable VIN
 //   $zapier_facebook_key_2 = $dds_settings_options['zapier_facebook_key_2']; // Zapier Facebook Key
 //   $zapier_instagram_key_3 = $dds_settings_options['zapier_instagram_key_3']; // Zapier Instagram Key
 //   $zapier_twitter_key_4 = $dds_settings_options['zapier_twitter_key_4']; // Zapier Twitter Key
@@ -687,4 +714,4 @@ if ( is_admin() ){
 //   $dealer_tel_3_12 = $dds_settings_options['dealer_tel_3_12']; // Dealer Tel 3
 //   INMOTIV API KEY 46e5e34b-62aa-4b05-a9c7-35d256ab8c41
 
- ?>
+?>

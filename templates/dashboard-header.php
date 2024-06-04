@@ -70,7 +70,6 @@
 
 
   <title>Dashboard</title>
-
 </head>
 
 <body>  

@@ -1,7 +1,7 @@
 <?php
 
 
-$check_page_exist = get_page_by_title('Dashboard', OBJECT, 'page');
+$check_page_exist = dds_get_page_by_title('Dashboard', OBJECT, 'page');
 
 if(empty($check_page_exist)) {
     $page_id = wp_insert_post(
@@ -19,11 +19,11 @@ if(empty($check_page_exist)) {
 }
 
 
-$check_page_exist = get_page_by_title('Archief', OBJECT, 'page');
+$check_page_exist = dds_get_page_by_title('Archief', OBJECT, 'page');
 
 if(empty($check_page_exist)) {
 
-    $dashboard_page = get_page_by_path( 'dashboard' );
+    $dashboard_page = dds_get_page_by_title( 'dashboard' );
     
     $page_id = wp_insert_post(
         array(
@@ -40,7 +40,7 @@ if(empty($check_page_exist)) {
     );
 }
 
-$check_page_exist = get_page_by_title('Edit car', OBJECT, 'page');
+$check_page_exist = dds_get_page_by_title('Edit car', OBJECT, 'page');
 
 if(empty($check_page_exist)) {
 

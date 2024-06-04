@@ -49,6 +49,7 @@ jQuery(document).ready(function($){
     var $dropzone_exists = $('div.dropzone_edit');
 
     if ( $dropzone_exists.length){
+      
         var dropzone = new Dropzone("div.dropzone_edit", {
             url: siteurl + "/wp-content/plugins/dds-dashboard/templates/dash-ajax.php",
             acceptedFiles: "image/*",
