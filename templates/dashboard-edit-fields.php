@@ -454,6 +454,11 @@ foreach ($opties_transmissie as $optie) {
 </div>
 
 <div class="edit_input_wrapper">
+<label for="co2">Co²</label>
+<input id="co2" type="number" data-meta="_car_co_key" value="<?php echo($meta["_car_co_key"][0]); ?>">
+</div>
+
+<div class="edit_input_wrapper">
 <label for="Kleurinterieur">Kleur interieur</label>
 
 <select  class="edit-select" name="Kleurinterieur" data-meta="_car_kleurinterieur_key" id="Kleurinterieur">

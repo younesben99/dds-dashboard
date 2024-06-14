@@ -2,10 +2,128 @@
 
 function dds_edit_options($id){
 
-    $opt_comfort = array("Achterbank 1/3 - 2/3", "Airconditioning", "Armsteun", "Automatische klimaatregeling", "Cruise Control", "Electrische ruiten", "Electrische zetelverstelling", "Elektrisch verstelbare buitenspiegels", "Elektrische achterklep", "Getinte ramen", "Hill-Hold Control", "Lederen stuurwiel", "Lendensteun", "Lichtsensor", "Massagestoelen", "Multifunctioneel stuur", "Navigatiesysteem", "Open dak", "Parkeerhulp", "Parkeerhulp achter", "Parkeerhulp voor", "Regensensor", "Start/Stop systeem", "Zetelverwarming");
-    $opt_enter_media = array("Bluetooth", "Boordcomputer", "CD", "Digitale radio-ontvangst", "Handsfree", "MP3", "Radio", "Sound system", "USB");
-    $opt_extra = array("Aanraakscherm", "Bagagerek", "Lichtmetalen velgen", "Schakelpaddles", "Schuifdeur", "Skiluik", "Sneeuwbanden", "Sportzetels", "Spraakbediening", "Trekhaak");
-    $opt_veiligheid = array("ABS", "Achter airbag", "Airbag bestuurder", "Airbag passagier", "Alarm", "Automatische Tractie Controle", "Centrale deurvergrendeling met afstandsbediening", "Centrale vergrendeling", "Dagrijlichten", "Dodehoekdetectie", "Electronic Stability Program", "Hoofd airbag", "Isofix", "LED verlichting", "Mistlampen", "Startonderbreker", "Stuurbekrachtiging", "Xenon Lichten", "Zij-airbags", "Bandenspanningscontrolesysteem");
+    $opt_comfort = array(
+        "Achterbank 1/3 - 2/3",
+        "Airconditioning",
+        "Armsteun",
+        "Automatische klimaatregeling",
+        "Cruise Control",
+        "Electrische ruiten",
+        "Electrische zetelverstelling",
+        "Elektrisch verstelbare buitenspiegels",
+        "Elektrische achterklep",
+        "Getinte ramen",
+        "Hill-Hold Control",
+        "Lederen stuurwiel",
+        "Lendensteun",
+        "Lichtsensor",
+        "Massagestoelen",
+        "Multifunctioneel stuur",
+        "Navigatiesysteem",
+        "Open dak",
+        "Parkeerhulp",
+        "Parkeerhulp achter",
+        "Parkeerhulp voor",
+        "Regensensor",
+        "Start/Stop systeem",
+        "Zetelverwarming",
+        "360° camera",
+        "Head-up display",
+        "Keyless Entry",
+        "Luchtvering",
+        "Panoramisch dak",
+        "Parkeerhulp automatisch",
+        "Parkeerhulp met camera",
+        "Stoelventilatie",
+        "Stuurwielverwarming",
+        "Voorruitverwarming",
+        "Wind deflector",
+        "Lederen bekleding",
+        "4x4"
+    );
+    
+    
+    $opt_enter_media = array(
+        "Bluetooth",
+        "Boordcomputer",
+        "CD",
+        "Digitale radio-ontvangst",
+        "Handsfree",
+        "MP3",
+        "Radio",
+        "Sound system",
+        "USB",
+        "Android Auto",
+        "Apple CarPlay",
+        "Geheel digitaal combi-instrument",
+        "Inductieladen voor smartphones",
+        "Muziekstreaming geïntegreerd"
+    );
+    
+    $opt_extra = array(
+        "Aanraakscherm",
+        "Bagagerek",
+        "Lichtmetalen velgen",
+        "Schakelpaddles",
+        "Schuifdeur",
+        "Skiluik",
+        "Sneeuwbanden",
+        "Sportzetels",
+        "Spraakbediening",
+        "Trekhaak",
+        "Binnenspiegel automatisch dimmend",
+        "Elektronische parkeerrem",
+        "Katalysator",
+        "Lichtmetalen velgen (21\")",
+        "Noodwiel",
+        "Sfeerverlichting",
+        "Spoiler",
+        "Sportophanging",
+        "Sportpakket",
+        "Wassysteem voor koplampen",
+        "Winterpakket",
+        "Lichtmetalen velgen (20\")",
+        "Zomerbanden"
+    );
+    
+    $opt_veiligheid = array(
+        "ABS",
+        "Achter airbag",
+        "Airbag bestuurder",
+        "Airbag passagier",
+        "Alarm",
+        "Automatische Tractie Controle",
+        "Centrale deurvergrendeling met afstandsbediening",
+        "Centrale vergrendeling",
+        "Dagrijlichten",
+        "Dodehoekdetectie",
+        "Electronic Stability Program",
+        "Hoofd airbag",
+        "Isofix",
+        "LED verlichting",
+        "Mistlampen",
+        "Startonderbreker",
+        "Stuurbekrachtiging",
+        "Xenon Lichten",
+        "Zij-airbags",
+        "Bandenspanningscontrolesysteem",
+        "Adaptieve Cruise Control",
+        "Adaptive lights",
+        "Botswaarschuwing",
+        "Emergency Brake Assist",
+        "Grootlichtassistent",
+        "Koplamp volledig LED",
+        "LED dagrijverlichting",
+        "Lane Departure Warning Systeem",
+        "Noodoproepsysteem",
+        "Verkeersbordherkenning",
+        "Vermoeidheidsdetectie",
+        "Bi-Xenon koplampen",
+        "Laserlicht",
+        "Night view assist",
+        "Snelheidsbeperkingsinstallatie",
+        "Verblindingsvrij grootlicht"
+    );
     
     $value_enter_media = get_post_meta($id, '_car_enter_media_key', true );
     if(empty($value_enter_media)){
